@@ -22,18 +22,18 @@ using Dominio;
 
 namespace Dominio	
 {
-	public partial class Ingrediente
+	public partial class TipoComida
 	{
-		private int idIngrediente;
-		public virtual int IdIngrediente
+		private int idTipoComida;
+		public virtual int IdTipoComida
 		{
 			get
 			{
-				return this.idIngrediente;
+				return this.idTipoComida;
 			}
 			set
 			{
-				this.idIngrediente = value;
+				this.idTipoComida = value;
 			}
 		}
 		
@@ -50,12 +50,12 @@ namespace Dominio
 			}
 		}
 		
-		private IList<ComidaXIngrediente> comidaXIngredientes = new List<ComidaXIngrediente>();
-		public virtual IList<ComidaXIngrediente> ComidaXIngredientes
+		private IList<Comida> comidas = new List<Comida>();
+		public virtual IList<Comida> Comidas
 		{
 			get
 			{
-				return this.comidaXIngredientes;
+				return this.comidas;
 			}
 		}
 		

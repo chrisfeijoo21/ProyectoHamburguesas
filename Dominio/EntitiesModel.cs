@@ -50,19 +50,11 @@ namespace Dominio
 			:base(connection, backendConfiguration, metadataSource)
 		{ }
 			
-		public IQueryable<Ingrediente> Ingredientes 
+		public IQueryable<TipoComida> TipoComidas 
 		{
 			get
 			{
-				return this.GetAll<Ingrediente>();
-			}
-		}
-		
-		public IQueryable<ComidaXIngrediente> ComidaXIngredientes 
-		{
-			get
-			{
-				return this.GetAll<ComidaXIngrediente>();
+				return this.GetAll<TipoComida>();
 			}
 		}
 		
@@ -95,11 +87,7 @@ namespace Dominio
 	
 	public interface IentidadDominioUnitOfWork : IUnitOfWork
 	{
-		IQueryable<Ingrediente> Ingredientes
-		{
-			get;
-		}
-		IQueryable<ComidaXIngrediente> ComidaXIngredientes
+		IQueryable<TipoComida> TipoComidas
 		{
 			get;
 		}

@@ -37,6 +37,19 @@ namespace Dominio
 			}
 		}
 		
+		private int? tipoComida;
+		public virtual int? TipoComida
+		{
+			get
+			{
+				return this.tipoComida;
+			}
+			set
+			{
+				this.tipoComida = value;
+			}
+		}
+		
 		private string nombre;
 		public virtual string Nombre
 		{
@@ -63,6 +76,19 @@ namespace Dominio
 			}
 		}
 		
+		private string ingredientes;
+		public virtual string Ingredientes
+		{
+			get
+			{
+				return this.ingredientes;
+			}
+			set
+			{
+				this.ingredientes = value;
+			}
+		}
+		
 		private string observaciones;
 		public virtual string Observaciones
 		{
@@ -76,12 +102,16 @@ namespace Dominio
 			}
 		}
 		
-		private IList<ComidaXIngrediente> comidaXIngredientes = new List<ComidaXIngrediente>();
-		public virtual IList<ComidaXIngrediente> ComidaXIngredientes
+		private TipoComida tipoComida1;
+		public virtual TipoComida TipoComida1
 		{
 			get
 			{
-				return this.comidaXIngredientes;
+				return this.tipoComida1;
+			}
+			set
+			{
+				this.tipoComida1 = value;
 			}
 		}
 		

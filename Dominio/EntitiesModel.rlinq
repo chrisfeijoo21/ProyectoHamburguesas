@@ -2,57 +2,23 @@
 <DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="entidadDominio" namespace="Dominio" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
   <orm:orm name="entidadDominio" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
     <orm:namespace name="Dominio" default="true">
-      <orm:class name="Ingrediente" uniqueId="14c62270-18f0-4d51-b6cb-be5266f92613">
-        <orm:table name="ingrediente" />
+      <orm:class name="TipoComida" uniqueId="66e610d0-7c97-4008-bc55-993f376227ff">
+        <orm:table name="TipoComida" />
         <orm:identity>
-          <orm:key-generator name="autoinc">
-            <orm:key-generator-member property-name="IdIngrediente" />
-          </orm:key-generator>
-          <orm:single-field field-name="idIngrediente" />
+          <orm:single-field field-name="idTipoComida" />
         </orm:identity>
         <orm:concurrency strategy="changed" />
-        <orm:field name="idIngrediente" property="IdIngrediente" behavior="readwrite" uniqueId="219eab5c-d531-4635-bf86-fd60db3fb217" type="System.Int32">
-          <orm:column name="idIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:field name="idTipoComida" property="IdTipoComida" behavior="readwrite" uniqueId="3c69672f-9594-40bd-b8e3-d13ddaeb2882" type="System.Int32">
+          <orm:column name="idTipoComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
         </orm:field>
-        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="c030f569-7556-4357-adab-79e1efa07638" type="System.String">
-          <orm:column name="Nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="91576e6a-3cc2-4921-a996-ddc991b52b6a" type="System.String">
+          <orm:column name="Nombre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="StringVariableLength" />
         </orm:field>
-        <orm:field name="comidaXIngredientes" property="ComidaXIngredientes" behavior="readwrite" uniqueId="5dbf80e2-ef4a-4ff6-9e9a-44ffc435bb0c" type="Dominio.ComidaXIngrediente">
-          <orm:collection element-class="Dominio.ComidaXIngrediente" inverse-field="ingrediente" order-by="" uniqueId="1de9631f-f3a6-4c68-ac3a-cd079b086aa4" />
-        </orm:field>
-      </orm:class>
-      <orm:class name="ComidaXIngrediente" uniqueId="6446bd2e-5362-446b-a133-9afe70d6d114">
-        <orm:table name="comidaXIngrediente" />
-        <orm:identity>
-          <orm:key-generator name="autoinc">
-            <orm:key-generator-member property-name="IdComidaXIngrediente" />
-          </orm:key-generator>
-          <orm:single-field field-name="idComidaXIngrediente" />
-        </orm:identity>
-        <orm:concurrency strategy="changed" />
-        <orm:field name="idComidaXIngrediente" property="IdComidaXIngrediente" behavior="readwrite" uniqueId="4329aa32-3ace-43d1-b528-5f9715e3cb5c" type="System.Int32">
-          <orm:column name="idComidaXIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        </orm:field>
-        <orm:field name="idComida" property="IdComida" behavior="readwrite" uniqueId="48651fd3-7854-4b51-b2a0-27f513d4bde7" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column name="idComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        </orm:field>
-        <orm:field name="idIngrediente" property="IdIngrediente" behavior="readwrite" uniqueId="f4a2ecd1-797a-48a3-a382-27780fcc476c" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column name="idIngrediente" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        </orm:field>
-        <orm:field name="ingrediente" property="Ingrediente" behavior="readwrite" uniqueId="a45e934f-c539-4bc2-a28c-cdec06d3edfb" type="Dominio.Ingrediente">
-          <orm:reference uniqueId="1de9631f-f3a6-4c68-ac3a-cd079b086aa4" association-name="ComidaXIngredienteHasIngrediente">
-            <orm:sharedfield name="idIngrediente" target-class="Dominio.Ingrediente" target-field="idIngrediente" />
-            <orm:constraint name="FK__comidaXIn__idIng__1FCDBCEB" delete-action="dbdefaultrule" destination-table="ingrediente" />
-          </orm:reference>
-        </orm:field>
-        <orm:field name="comida" property="Comida" behavior="readwrite" uniqueId="088abb78-9909-4f2f-a4ad-26da97ecbe2b" type="Dominio.Comida">
-          <orm:reference uniqueId="76cb047b-aefd-4b1e-8e63-3d66557c7beb" association-name="ComidaXIngredienteHasComida">
-            <orm:sharedfield name="idComida" target-class="Dominio.Comida" target-field="idComida" />
-            <orm:constraint name="FK__comidaXIn__idCom__1ED998B2" delete-action="dbdefaultrule" destination-table="comida" />
-          </orm:reference>
+        <orm:field name="comidas" property="Comidas" behavior="readwrite" uniqueId="cd049966-416d-4d49-b131-0c019f4245f2" type="Dominio.Comida">
+          <orm:collection element-class="Dominio.Comida" inverse-field="tipoComida1" order-by="" uniqueId="2930e571-699a-47d2-80a0-70f675a2f638" />
         </orm:field>
       </orm:class>
-      <orm:class name="Comida" uniqueId="dc3fa2af-b168-47ec-898a-f0bcf6a11735">
+      <orm:class name="Comida" uniqueId="741512dd-9d45-4323-9c51-fcfe11c6a22d">
         <orm:table name="comida" />
         <orm:identity>
           <orm:key-generator name="autoinc">
@@ -61,62 +27,47 @@
           <orm:single-field field-name="idComida" />
         </orm:identity>
         <orm:concurrency strategy="changed" />
-        <orm:field name="idComida" property="IdComida" behavior="readwrite" uniqueId="8adfdce9-c8f2-453b-af06-0c773fbdfadd" type="System.Int32">
+        <orm:field name="idComida" property="IdComida" behavior="readwrite" uniqueId="7b725e51-be04-46ac-98fe-5f01308db1e5" type="System.Int32">
           <orm:column name="idComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
         </orm:field>
-        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="28212aa0-f27a-49a5-a05b-95cc570bd587" type="System.String">
+        <orm:field name="tipoComida" property="TipoComida" behavior="readwrite" uniqueId="3c8e63f9-1ec2-46b3-8ce6-fec72fc8069d" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="25f3763e-d665-4045-b19c-2af56dda58df" type="System.String">
           <orm:column name="Nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
         </orm:field>
-        <orm:field name="precio" property="Precio" behavior="readwrite" uniqueId="a8fd857e-3912-4f9f-b657-02856113915e" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+        <orm:field name="precio" property="Precio" behavior="readwrite" uniqueId="8608f855-2437-46e6-b1ad-0f4193510b35" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
           <orm:column name="Precio" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:field>
-        <orm:field name="observaciones" property="Observaciones" behavior="readwrite" uniqueId="ad4d9a75-2aa0-4c8b-9557-4ab87e9f5af4" type="System.String">
+        <orm:field name="ingredientes" property="Ingredientes" behavior="readwrite" uniqueId="38753fcc-2327-4274-a508-605e7bff0b76" type="System.String">
+          <orm:column name="Ingredientes" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        </orm:field>
+        <orm:field name="observaciones" property="Observaciones" behavior="readwrite" uniqueId="a07e90c2-1d03-44d3-8321-d7fd872cc52c" type="System.String">
           <orm:column name="Observaciones" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
         </orm:field>
-        <orm:field name="comidaXIngredientes" property="ComidaXIngredientes" behavior="readwrite" uniqueId="1ec4d2e0-e57c-43ec-8c24-cd6111c06559" type="Dominio.ComidaXIngrediente">
-          <orm:collection element-class="Dominio.ComidaXIngrediente" inverse-field="comida" order-by="" uniqueId="76cb047b-aefd-4b1e-8e63-3d66557c7beb" />
+        <orm:field name="tipoComida1" property="TipoComida1" behavior="readwrite" uniqueId="ff6e8835-a264-49ca-840d-46ba8b6aed66" type="Dominio.TipoComida">
+          <orm:reference uniqueId="2930e571-699a-47d2-80a0-70f675a2f638" association-name="ComidaHasTipoComida">
+            <orm:sharedfield name="tipoComida" target-class="Dominio.TipoComida" target-field="idTipoComida" />
+            <orm:constraint name="FK__comida__TipoComi__267ABA7A" delete-action="dbdefaultrule" destination-table="TipoComida" />
+          </orm:reference>
         </orm:field>
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
-      <orm:table name="Ingrediente">
-        <orm:column name="idIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        <orm:column name="nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
-      </orm:table>
-      <orm:table name="ComidaXIngrediente">
-        <orm:column name="idComidaXIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        <orm:column name="idComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="idIngrediente" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:constraint name="FK_ComidaXIngrediente_ComidaXIngrediente" delete-action="dbdefaultrule" destination-table="ComidaXIngrediente">
-          <orm:column name="idComidaXIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        </orm:constraint>
-      </orm:table>
-      <orm:table name="Comida">
-        <orm:column name="idComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
-        <orm:column name="precio" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="observacion" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="StringVariableLength" />
-      </orm:table>
-      <orm:table name="ingrediente">
-        <orm:column name="idIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        <orm:column name="Nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
-      </orm:table>
-      <orm:table name="comidaXIngrediente">
-        <orm:column name="idComidaXIngrediente" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        <orm:column name="idComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="idIngrediente" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:constraint name="FK__comidaXIn__idIng__1FCDBCEB" delete-action="dbdefaultrule" destination-table="ingrediente">
-          <orm:column name="idIngrediente" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        </orm:constraint>
-        <orm:constraint name="FK__comidaXIn__idCom__1ED998B2" delete-action="dbdefaultrule" destination-table="comida">
-          <orm:column name="idComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        </orm:constraint>
+      <orm:table name="TipoComida">
+        <orm:column name="idTipoComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="Nombre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="StringVariableLength" />
       </orm:table>
       <orm:table name="comida">
         <orm:column name="idComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         <orm:column name="Nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
         <orm:column name="Precio" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Ingredientes" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
         <orm:column name="Observaciones" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        <orm:constraint name="FK__comida__TipoComi__267ABA7A" delete-action="dbdefaultrule" destination-table="TipoComida">
+          <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
       </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
@@ -156,64 +107,40 @@
     </BackendConfigurationSettings>
   </ModelSettings>
   <Types>
-    <DomainClass Id="14c62270-18f0-4d51-b6cb-be5266f92613" name="Ingrediente" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="IdIngrediente">
-      <Property Id="219eab5c-d531-4635-bf86-fd60db3fb217" name="IdIngrediente" type="Int32" label="IdIngrediente : Int32" kind="Persistent" identity="true" fieldName="idIngrediente" />
-      <Property Id="c030f569-7556-4357-adab-79e1efa07638" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+    <DomainClass Id="66e610d0-7c97-4008-bc55-993f376227ff" name="TipoComida" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="3c69672f-9594-40bd-b8e3-d13ddaeb2882" name="IdTipoComida" type="Int32" label="IdTipoComida : Int32" kind="Persistent" identity="true" fieldName="idTipoComida" />
+      <Property Id="91576e6a-3cc2-4921-a996-ddc991b52b6a" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
       <navigationalProperties>
-        <classHasNavigationalProperties Id="c0841656-7559-4e94-9a39-abc15f48153b">
-          <NavigationalProperty Id="5dbf80e2-ef4a-4ff6-9e9a-44ffc435bb0c" name="ComidaXIngredientes" type="IList&lt;ComidaXIngrediente&gt;" label="ComidaXIngredientes : IList&lt;ComidaXIngrediente&gt;" nullable="true" kind="Persistent" fieldName="comidaXIngredientes" isDependent="false" isManaged="false" />
+        <classHasNavigationalProperties Id="3a4a6f84-6045-4965-9b71-ee233fedbefa">
+          <NavigationalProperty Id="cd049966-416d-4d49-b131-0c019f4245f2" name="Comidas" type="IList&lt;Comida&gt;" label="Comidas : IList&lt;Comida&gt;" nullable="true" kind="Persistent" fieldName="comidas" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
-    <DomainClass Id="6446bd2e-5362-446b-a133-9afe70d6d114" name="ComidaXIngrediente" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="IdComidaXIngrediente">
-      <Property Id="4329aa32-3ace-43d1-b528-5f9715e3cb5c" name="IdComidaXIngrediente" type="Int32" label="IdComidaXIngrediente : Int32" kind="Persistent" identity="true" fieldName="idComidaXIngrediente" />
-      <Property Id="48651fd3-7854-4b51-b2a0-27f513d4bde7" name="IdComida" type="Int32" label="IdComida : Int32" nullable="true" kind="Persistent" fieldName="idComida" />
-      <Property Id="f4a2ecd1-797a-48a3-a382-27780fcc476c" name="IdIngrediente" type="Int32" label="IdIngrediente : Int32" nullable="true" kind="Persistent" fieldName="idIngrediente" />
+    <DomainClass Id="741512dd-9d45-4323-9c51-fcfe11c6a22d" name="Comida" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="IdComida">
+      <Property Id="7b725e51-be04-46ac-98fe-5f01308db1e5" name="IdComida" type="Int32" label="IdComida : Int32" kind="Persistent" identity="true" fieldName="idComida" />
+      <Property Id="38753fcc-2327-4274-a508-605e7bff0b76" name="Ingredientes" label="Ingredientes : String" kind="Persistent" fieldName="ingredientes" />
+      <Property Id="25f3763e-d665-4045-b19c-2af56dda58df" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <Property Id="a07e90c2-1d03-44d3-8321-d7fd872cc52c" name="Observaciones" label="Observaciones : String" kind="Persistent" fieldName="observaciones" />
+      <Property Id="8608f855-2437-46e6-b1ad-0f4193510b35" name="Precio" type="Int32" label="Precio : Int32" nullable="true" kind="Persistent" fieldName="precio" />
+      <Property Id="3c8e63f9-1ec2-46b3-8ce6-fec72fc8069d" name="TipoComida" type="Int32" label="TipoComida : Int32" nullable="true" kind="Persistent" fieldName="tipoComida" />
       <AssociationTargets>
-        <Association Id="1de9631f-f3a6-4c68-ac3a-cd079b086aa4" SourceMultiplicity="ZeroOne" name="ComidaXIngredienteHasIngrediente">
-          <DomainClassMoniker name="/entidadDominio/Ingrediente" />
+        <Association Id="2930e571-699a-47d2-80a0-70f675a2f638" SourceMultiplicity="ZeroOne" name="ComidaHasTipoComida">
+          <DomainClassMoniker name="/entidadDominio/TipoComida" />
           <targetNavigationalProperty>
-            <associationDefinesTargetProperty Id="cf6fb6bc-e28b-4cf0-9ce6-bd1ad51abc94">
-              <NavigationalPropertyMoniker name="/entidadDominio/Ingrediente/ComidaXIngredientes" />
+            <associationDefinesTargetProperty Id="12aa5d6a-2c75-4eca-807f-616ba93c015f">
+              <NavigationalPropertyMoniker name="/entidadDominio/TipoComida/Comidas" />
             </associationDefinesTargetProperty>
           </targetNavigationalProperty>
           <sourceNavigationalProperty>
-            <associationDefinesSourceProperty Id="7b8970d8-497a-438e-b027-64921f2ca1ce">
-              <NavigationalPropertyMoniker name="/entidadDominio/ComidaXIngrediente/Ingrediente" />
-            </associationDefinesSourceProperty>
-          </sourceNavigationalProperty>
-        </Association>
-        <Association Id="76cb047b-aefd-4b1e-8e63-3d66557c7beb" SourceMultiplicity="ZeroOne" name="ComidaXIngredienteHasComida">
-          <DomainClassMoniker name="/entidadDominio/Comida" />
-          <targetNavigationalProperty>
-            <associationDefinesTargetProperty Id="cd7b5123-2329-4925-81e6-1f629978f333">
-              <NavigationalPropertyMoniker name="/entidadDominio/Comida/ComidaXIngredientes" />
-            </associationDefinesTargetProperty>
-          </targetNavigationalProperty>
-          <sourceNavigationalProperty>
-            <associationDefinesSourceProperty Id="afc6897a-d076-4711-8dc5-eccf41110064">
-              <NavigationalPropertyMoniker name="/entidadDominio/ComidaXIngrediente/Comida" />
+            <associationDefinesSourceProperty Id="cefcc809-a86d-4ec2-9b2b-e6653624338b">
+              <NavigationalPropertyMoniker name="/entidadDominio/Comida/TipoComida1" />
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
       </AssociationTargets>
       <navigationalProperties>
-        <classHasNavigationalProperties Id="23dfe85f-00f8-4aa3-843c-1eb00b7f8294">
-          <NavigationalProperty Id="a45e934f-c539-4bc2-a28c-cdec06d3edfb" name="Ingrediente" type="Ingrediente" label="Ingrediente : Ingrediente" nullable="true" kind="Persistent" fieldName="ingrediente" isDependent="false" isManaged="false" />
-        </classHasNavigationalProperties>
-        <classHasNavigationalProperties Id="e55fa62e-d650-4a22-a750-ba23975cde36">
-          <NavigationalProperty Id="088abb78-9909-4f2f-a4ad-26da97ecbe2b" name="Comida" type="Comida" label="Comida : Comida" nullable="true" kind="Persistent" fieldName="comida" isDependent="false" isManaged="false" />
-        </classHasNavigationalProperties>
-      </navigationalProperties>
-    </DomainClass>
-    <DomainClass Id="dc3fa2af-b168-47ec-898a-f0bcf6a11735" name="Comida" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="IdComida">
-      <Property Id="8adfdce9-c8f2-453b-af06-0c773fbdfadd" name="IdComida" type="Int32" label="IdComida : Int32" kind="Persistent" identity="true" fieldName="idComida" />
-      <Property Id="28212aa0-f27a-49a5-a05b-95cc570bd587" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
-      <Property Id="ad4d9a75-2aa0-4c8b-9557-4ab87e9f5af4" name="Observaciones" label="Observaciones : String" kind="Persistent" fieldName="observaciones" />
-      <Property Id="a8fd857e-3912-4f9f-b657-02856113915e" name="Precio" type="Int32" label="Precio : Int32" nullable="true" kind="Persistent" fieldName="precio" />
-      <navigationalProperties>
-        <classHasNavigationalProperties Id="ba704375-453e-45b9-83f8-793f98539586">
-          <NavigationalProperty Id="1ec4d2e0-e57c-43ec-8c24-cd6111c06559" name="ComidaXIngredientes" type="IList&lt;ComidaXIngrediente&gt;" label="ComidaXIngredientes : IList&lt;ComidaXIngrediente&gt;" nullable="true" kind="Persistent" fieldName="comidaXIngredientes" isDependent="false" isManaged="false" />
+        <classHasNavigationalProperties Id="1ba4e514-a590-417e-84f1-8124922552e0">
+          <NavigationalProperty Id="ff6e8835-a264-49ca-840d-46ba8b6aed66" name="TipoComida1" type="TipoComida" label="TipoComida1 : TipoComida" nullable="true" kind="Persistent" fieldName="tipoComida1" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -221,8 +148,7 @@
   <domainContext>
     <domainModelHasDomainContext Id="80c8226a-734c-4dbb-aa39-a0c40a3df562">
       <domainContainer name="entidadDominio" namespace="Dominio" showPropertiesCompartment="true">
-        <entitySetProperty name="Ingredientes" namespace="Dominio" type="Ingrediente" label="Ingredientes : IQueryable&lt;Dominio.Ingrediente&gt;" />
-        <entitySetProperty name="ComidaXIngredientes" namespace="Dominio" type="ComidaXIngrediente" label="ComidaXIngredientes : IQueryable&lt;Dominio.ComidaXIngrediente&gt;" />
+        <entitySetProperty name="TipoComidas" namespace="Dominio" type="TipoComida" label="TipoComidas : IQueryable&lt;Dominio.TipoComida&gt;" />
         <entitySetProperty name="Comidas" namespace="Dominio" type="Comida" label="Comidas : IQueryable&lt;Dominio.Comida&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
