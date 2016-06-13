@@ -15,10 +15,7 @@ namespace Repositorio
             {
                 IEnumerable<Comida> listacomida = dominio.Comidas.Where(c => c.TipoComida == idTipoComida).ToList();
                 return listacomida;
-                //IEnumerable<Comida> listaComida = dominio.
                 
-
-                //return listaComida;
             }
         }
     }

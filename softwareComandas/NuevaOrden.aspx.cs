@@ -30,7 +30,7 @@ namespace softwareComandas
         {
             ComidaNego comidaNego = new ComidaNego();
 
-            gdvComida.DataSource = null;// comidaNego.MostrarComidaXTipo(tipo);
+            gdvComida.DataSource = comidaNego.MostrarComidaXTipo(tipo);
             gdvComida.DataBind();
 
 

@@ -7,23 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace softwareComandas
 {
-    public partial class IniciarSesion : System.Web.UI.Page
+    public partial class RegistroUsuarios : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnIngresar_Click(object sender, EventArgs e)
-        {
-            IngresarDatos();
-        }
-
-        private void IngresarDatos()
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
 
         }
 
-       
+        protected void btnMostrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
