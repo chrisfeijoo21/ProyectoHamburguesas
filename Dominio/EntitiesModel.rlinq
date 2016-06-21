@@ -52,6 +52,22 @@
           </orm:reference>
         </orm:field>
       </orm:class>
+      <orm:class name="Usuario" uniqueId="95009290-e9c6-48b6-be14-b45d55bf2ba5">
+        <orm:table name="usuario" />
+        <orm:identity>
+          <orm:single-field field-name="idUsuario" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="idUsuario" property="IdUsuario" behavior="readwrite" uniqueId="e91df57f-2f60-4ff6-b6fc-07a2d0822c7a" type="System.Int32">
+          <orm:column name="idUsuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="usuario1" property="Usuario1" behavior="readwrite" uniqueId="41525a31-e48e-433d-8425-290272144a36" type="System.String">
+          <orm:column name="Usuario" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="contraseña" property="Contraseña" behavior="readwrite" uniqueId="ebfe8743-3c3e-42fb-8de4-d2d184ef18ef" type="System.String">
+          <orm:column name="Contraseña" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+      </orm:class>
     </orm:namespace>
     <orm:schema schema="">
       <orm:table name="TipoComida">
@@ -68,6 +84,22 @@
         <orm:constraint name="FK__comida__TipoComi__267ABA7A" delete-action="dbdefaultrule" destination-table="TipoComida">
           <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:constraint>
+      </orm:table>
+      <orm:table name="Usuarios">
+        <orm:column name="idUsuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="Nombre" sql-type="nchar" nullable="true" length="10" scale="0" ado-type="UnicodeStringFixedLength" />
+        <orm:column name="Apellido" sql-type="nchar" nullable="true" length="10" scale="0" ado-type="UnicodeStringFixedLength" />
+        <orm:column name="Edad" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Direccion" sql-type="nvarchar" nullable="true" length="100" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Telefono" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Localidad" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Usuario" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Contraseña" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="usuario">
+        <orm:column name="idUsuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="Usuario" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="Contraseña" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
       </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
@@ -144,12 +176,18 @@
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
+    <DomainClass Id="95009290-e9c6-48b6-be14-b45d55bf2ba5" name="Usuario" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="e91df57f-2f60-4ff6-b6fc-07a2d0822c7a" name="IdUsuario" type="Int32" label="IdUsuario : Int32" kind="Persistent" identity="true" fieldName="idUsuario" />
+      <Property Id="ebfe8743-3c3e-42fb-8de4-d2d184ef18ef" name="Contraseña" label="Contraseña : String" kind="Persistent" fieldName="contraseña" />
+      <Property Id="41525a31-e48e-433d-8425-290272144a36" name="Usuario1" label="Usuario1 : String" kind="Persistent" fieldName="usuario1" />
+    </DomainClass>
   </Types>
   <domainContext>
     <domainModelHasDomainContext Id="80c8226a-734c-4dbb-aa39-a0c40a3df562">
       <domainContainer name="entidadDominio" namespace="Dominio" showPropertiesCompartment="true">
         <entitySetProperty name="TipoComidas" namespace="Dominio" type="TipoComida" label="TipoComidas : IQueryable&lt;Dominio.TipoComida&gt;" />
         <entitySetProperty name="Comidas" namespace="Dominio" type="Comida" label="Comidas : IQueryable&lt;Dominio.Comida&gt;" />
+        <entitySetProperty name="Usuarios" namespace="Dominio" type="Usuario" label="Usuarios : IQueryable&lt;Dominio.Usuario&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

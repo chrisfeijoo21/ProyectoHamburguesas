@@ -13,6 +13,15 @@ namespace softwareComandas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IniciarSesion"] == null)
+            {
+                Response.Redirect("NuevaOrden.aspx");
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Correct", "alert('No se Inicio Sesión de Usuario.')", true);
+
+            }
 
         }
 

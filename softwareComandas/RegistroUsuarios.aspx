@@ -20,7 +20,6 @@
             background: url( Imagenes/Homemade_Thanksgiving.jpg) no-repeat fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
-            
         }
     </style>
 
@@ -34,39 +33,6 @@
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group">
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblNombre" runat="server" Text="Nombre:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblApellido" runat="server" Text="Apellido:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblEdad" runat="server" Text="Edad:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtEdad" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblDireccion" runat="server" Text="Direccion:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblTelefono" runat="server" Text="Telefono:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblLocalidad" runat="server" Text="Localidad:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtLocalidad" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <br />
                     <div class="form-group">
                         <asp:Label CssClass="col-md-2 control-label" ID="lblUsuario" runat="server" Text="Usuario:"></asp:Label>
                         <div class="col-md-4">
@@ -85,6 +51,12 @@
                         <div class="col-md-offset-2 col-md-4">
                             <asp:Button CssClass="btn btn-info" ID="btnMostrar" runat="server" Text="Mostrar" OnClick="btnMostrar_Click" />
                         </div>
+                        <div class="form-group">
+                            <asp:Label CssClass="col-md-2 control-label" ID="LblidUsuario" runat="server" Text="idUsuario:"></asp:Label>
+                            <div class="col-md-4">
+                                <asp:TextBox ID="txtidUsuario" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
                     </div>
                     <br />
                     <div class="form-group">
@@ -92,14 +64,9 @@
                         <div class="col-md-offset-2 col-md-8">
                             <asp:GridView ID="gdvGrilla" runat="server" Visible=" true" AutoGenerateColumns="false" EmptyDataText="No Hay Nada" CssClass="table">
                                 <Columns>
-                                    <asp:BoundField HeaderText="Nombre" DataField="nombre" />
-                                    <asp:BoundField HeaderText="Apellido" DataField="apellido" />
-                                    <asp:BoundField HeaderText="Edad" DataField="edad" />
-                                    <asp:BoundField HeaderText="Direccion" DataField="direccion" />
-                                    <asp:BoundField HeaderText="Telefono" DataField="telefono" />
-                                    <asp:BoundField HeaderText="Localidad" DataField="localidad" />
-                                    <asp:BoundField HeaderText="Usuario" DataField="usuario" />
-                                    <asp:BoundField HeaderText="Contraseña" DataField="contraseña" />
+                                    <asp:BoundField HeaderText="idUsuario" DataField="idUsuario" />
+                                    <asp:BoundField HeaderText="Usuario1" DataField="Usuario1" />
+                                    <asp:BoundField HeaderText="Contraseña" DataField="Contraseña" />
                                 </Columns>
                             </asp:GridView>
                         </div>

@@ -7,36 +7,36 @@
     <br />
     <br />
 
-    <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Ingreso de Usuarios</h3>
-            </div>
-            <div class="panel-body">
-
-                
+    <div class="container">
+        <br />
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel 1</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body">
                     <div class="form-group">
-                        <input class="form-control" placeholder="Nombre de Usuario" name="Usuario" type="text">
+                        <asp:Label CssClass="col-md-2 control-label" ID="lblidUser" runat="server" Text="idUser:"></asp:Label>
+                        <div class="col-md-4">
+                            <asp:TextBox ID="txtidUser" runat="server"></asp:TextBox>
+                        </div>
+                        <asp:Label CssClass="col-md-2 control-label" ID="lblUsuario" runat="server" Text="Usuario:"></asp:Label>
+                        <div class="col-md-4">
+                            <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Contraseña" name="contraseña" type="password" value="">
+                        <asp:Label CssClass="col-md-2 control-label" ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+                        <div class="col-md-4">
+                            <asp:TextBox ID="txtpassword" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-md-offset-2 col-md-4">
+                            <asp:Button CssClass="btn btn-info" ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+                        </div>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input name="remember" type="checkbox" value="Recordar Contraseña">
-                            Recordar Contraseña
-                        </label>
-                    </div>
-                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Ingresar">
-                
-
-                <hr />
-                <center><h4> </h4></center>
-                <input class="btn btn-lg btn-facebook btn-block" type="submit" value="Ingresar via facebook">
+                </div>
             </div>
         </div>
     </div>
-
-
-
 </asp:Content>

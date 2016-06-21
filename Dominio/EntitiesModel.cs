@@ -66,6 +66,14 @@ namespace Dominio
 			}
 		}
 		
+		public IQueryable<Usuario> Usuarios 
+		{
+			get
+			{
+				return this.GetAll<Usuario>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
@@ -92,6 +100,10 @@ namespace Dominio
 			get;
 		}
 		IQueryable<Comida> Comidas
+		{
+			get;
+		}
+		IQueryable<Usuario> Usuarios
 		{
 			get;
 		}
