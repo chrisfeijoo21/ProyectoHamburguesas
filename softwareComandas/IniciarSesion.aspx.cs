@@ -17,6 +17,10 @@ namespace softwareComandas
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (global.usuario != null)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Correct", "alert('Estas logeado como "+global.usuario+"')", true);
+            }
         }
         protected void btn_validar_Click(object sender, EventArgs e)
         {
@@ -27,7 +31,7 @@ namespace softwareComandas
             Usuario u = usuarioNego.validar_usuario(input_usuario.Value, input_password.Value);
             if (u != null)
             {
-                Session["usuario"] = input_usuario.Value;
+                global.usuario = input_usuario.Value;
                 Response.Redirect("NuevaOrden.aspx");
             }
             else
