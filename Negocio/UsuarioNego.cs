@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Repositorio;
 using Dominio;
+using Repositorio;
 using System.Data;
 
 namespace Negocio
@@ -13,18 +13,25 @@ namespace Negocio
     {
         UsuarioRepo usuarioRepo = new UsuarioRepo();
 
-        public void CargaUsuario(Usuario usuario)
+        public void cargar_usuario(Usuario usuario)
         {
-            usuarioRepo.CargaUsuario(usuario);
+            usuarioRepo.cargar_usuario(usuario);
         }
-        public IEnumerable<Usuario> MostrarUsuario()
+        public void actualizar_usuario(Usuario usuario)
         {
-            return usuarioRepo.MostrarUsuario();
+            usuarioRepo.actualizar_usuario(usuario);
         }
-
-        public DataTable CompararUsuario(string idUser, string Usuario, string password)
+        public IEnumerable<Usuario> mostrar_usuarios()
         {
-            return usuarioRepo.CompararUsuario(idUser,Usuario,password);
+            return usuarioRepo.mostrar_usuarios();
+        }
+        public Usuario validar_usuario(string usuario, string password)
+        {
+            return usuarioRepo.validar_usuario(usuario, password);
+        }
+        public Usuario ListaUsuariosPorID(int id_usuario)
+        {
+            return usuarioRepo.ListaUsuariosPorID(id_usuario);
         }
     }
 }

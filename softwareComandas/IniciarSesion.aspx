@@ -2,39 +2,23 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <br />
-    <br />
-    <br />
-
+    <%--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">--%>
     <div class="container">
-        <br />
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel 1</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblidUser" runat="server" Text="idUser:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtidUser" runat="server"></asp:TextBox>
-                        </div>
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblUsuario" runat="server" Text="Usuario:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label CssClass="col-md-2 control-label" ID="lblPassword" runat="server" Text="Password:"></asp:Label>
-                        <div class="col-md-4">
-                            <asp:TextBox ID="txtpassword" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-md-offset-2 col-md-4">
-                            <asp:Button CssClass="btn btn-info" ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="col-md-offset-5 col-md-3">
+                <div class="form-login">
+                    <h4>Bienvenido!</h4>
+                    <input type="text" id="input_usuario" class="form-control input-sm chat-input" placeholder="username" runat="server" />
+                    <br />
+                    <input type="text" id="input_password" class="form-control input-sm chat-input" placeholder="password" runat="server" />
+                    <br />
+                    <asp:Button CssClass="btn btn-info" ID="btn_validar" runat="server" Text="Ingresar" OnClick="btn_validar_Click" />
+                    <%--<div class="wrapper">
+                        <span class="group-btn">
+                            <a href="#" class="btn btn-primary btn-md" onclick="btn_validar_Click" runat="server">login <i class="fa fa-sign-in"></i></a>
+                        </span>
+                    </div>--%>
                 </div>
             </div>
         </div>

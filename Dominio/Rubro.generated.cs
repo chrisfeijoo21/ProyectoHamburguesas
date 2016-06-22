@@ -22,31 +22,18 @@ using Dominio;
 
 namespace Dominio	
 {
-	public partial class Comida
+	public partial class Rubro
 	{
-		private int idComida;
-		public virtual int IdComida
+		private int id_rubro;
+		public virtual int Id_rubro
 		{
 			get
 			{
-				return this.idComida;
+				return this.id_rubro;
 			}
 			set
 			{
-				this.idComida = value;
-			}
-		}
-		
-		private int? tipoComida;
-		public virtual int? TipoComida
-		{
-			get
-			{
-				return this.tipoComida;
-			}
-			set
-			{
-				this.tipoComida = value;
+				this.id_rubro = value;
 			}
 		}
 		
@@ -63,55 +50,12 @@ namespace Dominio
 			}
 		}
 		
-		private int? precio;
-		public virtual int? Precio
+		private IList<Articulo> articulo = new List<Articulo>();
+		public virtual IList<Articulo> Articulo
 		{
 			get
 			{
-				return this.precio;
-			}
-			set
-			{
-				this.precio = value;
-			}
-		}
-		
-		private string ingredientes;
-		public virtual string Ingredientes
-		{
-			get
-			{
-				return this.ingredientes;
-			}
-			set
-			{
-				this.ingredientes = value;
-			}
-		}
-		
-		private string observaciones;
-		public virtual string Observaciones
-		{
-			get
-			{
-				return this.observaciones;
-			}
-			set
-			{
-				this.observaciones = value;
-			}
-		}
-		
-		private TipoComida tipoComida1;
-		public virtual TipoComida TipoComida1
-		{
-			get
-			{
-				return this.tipoComida1;
-			}
-			set
-			{
-				this.tipoComida1 = value;
+				return this.articulo;
 			}
 		}
 		

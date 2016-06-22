@@ -7,28 +7,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
-
-
+    <title></title>
 
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-
-    <script src="Scripts/jquery-1.12.4.min.js"></script>
-
-
     <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-datepicker.css" rel="stylesheet" />
 
+    <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/bootstrap.js"></script>
-    --%>
-    
-
+    <script src="Scripts/bootstrap-datepicker.js"></script>
+    <script src="Scripts/bootstrap-datepicker.es.min.js"></script>
 
 </head>
 <body>
     <form runat="server" class="form-horizontal">
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -37,18 +30,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">SOFTWARE COMANDAS</a>
+                    <a class="navbar-brand" runat="server">SOFTWARE COMANDAS</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <%--<li><a runat="server" href="NuevaOrden.aspx">Nueva orden</a></li>--%>
+                        <li><a runat="server" href="NuevaOrden.aspx">Nueva orden</a></li>
                         <li><a runat="server" href="~/About">Ordenes</a></li>
                         <li><a runat="server" href="~/Contact">Reportes</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="RegistroUsuarios.aspx">Registrarse</a></li>
+                                <li><a runat="server" href="Usuarios.aspx">Usuarios</a></li>
                                 <li><a runat="server" href="IniciarSesion.aspx">Iniciar sesión</a></li>
                             </ul>
                         </AnonymousTemplate>
@@ -69,7 +62,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> - SOFTWARE COMANDAS v1.0</p>
             </footer>
         </div>
     </form>

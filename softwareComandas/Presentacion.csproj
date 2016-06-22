@@ -175,6 +175,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Imagenes\Homemade_Thanksgiving.jpg" />
+    <Content Include="Imagenes\light.jpg" />
     <Content Include="Imagenes\PlantillaPrincipal3.jpg" />
     <Content Include="IniciarSesion.aspx" />
     <Content Include="NuevaOrden.aspx" />
@@ -185,7 +186,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="perso.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="RegistroUsuarios.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -385,12 +386,12 @@
       <DependentUpon>NuevaOrden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistroUsuarios.aspx.cs">
-      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegistroUsuarios.aspx.designer.cs">
-      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -424,7 +425,7 @@
       <Name>Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
-      <Project>{4a1c88ee-8918-458c-bb15-493eaf07d67a}</Project>
+      <Project>{fccfdaf2-23ce-4637-93cc-c42b2e75b35a}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>

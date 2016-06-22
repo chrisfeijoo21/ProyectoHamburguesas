@@ -24,7 +24,7 @@ namespace Dominio
 {
 	public partial class entidadDominio : OpenAccessContext, IentidadDominioUnitOfWork
 	{
-		private static string connectionStringName = @"SoftwareComandasConnection";
+		private static string connectionStringName = @"TpfinalwebConnection";
 			
 		private static BackendConfiguration backend = GetBackendConfiguration();
 				
@@ -50,27 +50,59 @@ namespace Dominio
 			:base(connection, backendConfiguration, metadataSource)
 		{ }
 			
-		public IQueryable<TipoComida> TipoComidas 
-		{
-			get
-			{
-				return this.GetAll<TipoComida>();
-			}
-		}
-		
-		public IQueryable<Comida> Comidas 
-		{
-			get
-			{
-				return this.GetAll<Comida>();
-			}
-		}
-		
 		public IQueryable<Usuario> Usuarios 
 		{
 			get
 			{
 				return this.GetAll<Usuario>();
+			}
+		}
+		
+		public IQueryable<Subrubro> Subrubros 
+		{
+			get
+			{
+				return this.GetAll<Subrubro>();
+			}
+		}
+		
+		public IQueryable<Rubro> Rubros 
+		{
+			get
+			{
+				return this.GetAll<Rubro>();
+			}
+		}
+		
+		public IQueryable<Orden> Ordens 
+		{
+			get
+			{
+				return this.GetAll<Orden>();
+			}
+		}
+		
+		public IQueryable<LineaOrden> LineaOrdens 
+		{
+			get
+			{
+				return this.GetAll<LineaOrden>();
+			}
+		}
+		
+		public IQueryable<DetalleOrden> DetalleOrdens 
+		{
+			get
+			{
+				return this.GetAll<DetalleOrden>();
+			}
+		}
+		
+		public IQueryable<Articulo> Articulos 
+		{
+			get
+			{
+				return this.GetAll<Articulo>();
 			}
 		}
 		
@@ -95,15 +127,31 @@ namespace Dominio
 	
 	public interface IentidadDominioUnitOfWork : IUnitOfWork
 	{
-		IQueryable<TipoComida> TipoComidas
-		{
-			get;
-		}
-		IQueryable<Comida> Comidas
-		{
-			get;
-		}
 		IQueryable<Usuario> Usuarios
+		{
+			get;
+		}
+		IQueryable<Subrubro> Subrubros
+		{
+			get;
+		}
+		IQueryable<Rubro> Rubros
+		{
+			get;
+		}
+		IQueryable<Orden> Ordens
+		{
+			get;
+		}
+		IQueryable<LineaOrden> LineaOrdens
+		{
+			get;
+		}
+		IQueryable<DetalleOrden> DetalleOrdens
+		{
+			get;
+		}
+		IQueryable<Articulo> Articulos
 		{
 			get;
 		}

@@ -13,16 +13,10 @@ namespace softwareComandas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["IniciarSesion"] == null)
+            if (Session["usuario"] == null)
             {
-                Response.Redirect("NuevaOrden.aspx");
+                Response.Redirect("IniciarSesion.aspx");
             }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Correct", "alert('No se Inicio Sesión de Usuario.')", true);
-
-            }
-
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
@@ -37,10 +31,10 @@ namespace softwareComandas
         }
         private void llenarGrilla(int tipo)
         {
-            ComidaNego comidaNego = new ComidaNego();
+            //ComidaNego comidaNego = new ComidaNego();
 
-            gdvComida.DataSource = comidaNego.MostrarComidaXTipo(tipo);
-            gdvComida.DataBind();
+            //gdvComida.DataSource = comidaNego.MostrarComidaXTipo(tipo);
+            //gdvComida.DataBind();
 
 
         }

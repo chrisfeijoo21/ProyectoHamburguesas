@@ -13,7 +13,7 @@ namespace Repositorio
 {
     public class UsuarioRepo
     {
-        public void CargaUsuario(Usuario usuario)
+        public void cargar_usuario(Usuario usuario)
         {
             using(entidadDominio dominio = new entidadDominio())
             {
@@ -21,8 +21,16 @@ namespace Repositorio
                 dominio.SaveChanges();
             }
         }
+        public void actualizar_usuario(Usuario usuario)
+        {
+            using (entidadDominio dominio = new entidadDominio())
+            {
+                dominio.AttachCopy(usuario);
+                dominio.SaveChanges();
+            }
+        }
 
-        public IEnumerable<Usuario> MostrarUsuario()
+        public IEnumerable<Usuario> mostrar_usuarios()
         {
             using(entidadDominio dominio = new entidadDominio())
             {
@@ -30,19 +38,22 @@ namespace Repositorio
                 return dominio.CreateDetachedCopy(listaUsuario);
             }
         }
-
-        public DataTable CompararUsuario(string idUser, string Usuario, string password)
+        public Usuario validar_usuario(string usuario, string password)
         {
-            DataTable dt = new DataTable();
-            string cadenaConexion = "Data Source = HOME-PC\\SQLChristian; initial catalog = SoftwareComandas; integrated security = true";
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-            conexion.Open();
-
-            string query = "select * from usuario where idUsuario='" + idUser + "' and Usuario='" + Usuario + "' and Contraseña='" + password + "';";
-            SqlCommand cmd = new SqlCommand(query, conexion);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(dt);
-            return dt;
+            Usuario u = null;
+            using (entidadDominio dominio = new entidadDominio())
+            {
+                u = dominio.Usuarios.Where(c => c.Username == usuario && c.Password == password).FirstOrDefault();
+                return u;
+            }
+        }
+        public Usuario ListaUsuariosPorID(int id_usuario)
+        {
+            using (entidadDominio dominio = new entidadDominio())
+            {
+                Usuario usuario = dominio.Usuarios.Where(c => c.Id_usuario == id_usuario).FirstOrDefault();
+                return usuario;
+            }
         }
     }
 }

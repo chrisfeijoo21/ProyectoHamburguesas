@@ -18,47 +18,96 @@ using Telerik.OpenAccess.Metadata;
 using Telerik.OpenAccess.Data.Common;
 using Telerik.OpenAccess.Metadata.Fluent;
 using Telerik.OpenAccess.Metadata.Fluent.Advanced;
+using Dominio;
 
 namespace Dominio	
 {
 	public partial class Usuario
 	{
-		private int idUsuario;
-		public virtual int IdUsuario
+		private int id_usuario;
+		public virtual int Id_usuario
 		{
 			get
 			{
-				return this.idUsuario;
+				return this.id_usuario;
 			}
 			set
 			{
-				this.idUsuario = value;
+				this.id_usuario = value;
 			}
 		}
 		
-		private string usuario1;
-		public virtual string Usuario1
+		private string password;
+		public virtual string Password
 		{
 			get
 			{
-				return this.usuario1;
+				return this.password;
 			}
 			set
 			{
-				this.usuario1 = value;
+				this.password = value;
 			}
 		}
 		
-		private string contraseña;
-		public virtual string Contraseña
+		private string nombre;
+		public virtual string Nombre
 		{
 			get
 			{
-				return this.contraseña;
+				return this.nombre;
 			}
 			set
 			{
-				this.contraseña = value;
+				this.nombre = value;
+			}
+		}
+		
+		private string apellido;
+		public virtual string Apellido
+		{
+			get
+			{
+				return this.apellido;
+			}
+			set
+			{
+				this.apellido = value;
+			}
+		}
+		
+		private string tipo;
+		public virtual string Tipo
+		{
+			get
+			{
+				return this.tipo;
+			}
+			set
+			{
+				this.tipo = value;
+			}
+		}
+		
+		private string username;
+		public virtual string Username
+		{
+			get
+			{
+				return this.username;
+			}
+			set
+			{
+				this.username = value;
+			}
+		}
+		
+		private IList<Orden> orden = new List<Orden>();
+		public virtual IList<Orden> Orden
+		{
+			get
+			{
+				return this.orden;
 			}
 		}
 		

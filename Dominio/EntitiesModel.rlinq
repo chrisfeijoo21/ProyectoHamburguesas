@@ -2,104 +2,252 @@
 <DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="entidadDominio" namespace="Dominio" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
   <orm:orm name="entidadDominio" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
     <orm:namespace name="Dominio" default="true">
-      <orm:class name="TipoComida" uniqueId="66e610d0-7c97-4008-bc55-993f376227ff">
-        <orm:table name="TipoComida" />
-        <orm:identity>
-          <orm:single-field field-name="idTipoComida" />
-        </orm:identity>
-        <orm:concurrency strategy="changed" />
-        <orm:field name="idTipoComida" property="IdTipoComida" behavior="readwrite" uniqueId="3c69672f-9594-40bd-b8e3-d13ddaeb2882" type="System.Int32">
-          <orm:column name="idTipoComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
-        </orm:field>
-        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="91576e6a-3cc2-4921-a996-ddc991b52b6a" type="System.String">
-          <orm:column name="Nombre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="StringVariableLength" />
-        </orm:field>
-        <orm:field name="comidas" property="Comidas" behavior="readwrite" uniqueId="cd049966-416d-4d49-b131-0c019f4245f2" type="Dominio.Comida">
-          <orm:collection element-class="Dominio.Comida" inverse-field="tipoComida1" order-by="" uniqueId="2930e571-699a-47d2-80a0-70f675a2f638" />
-        </orm:field>
-      </orm:class>
-      <orm:class name="Comida" uniqueId="741512dd-9d45-4323-9c51-fcfe11c6a22d">
-        <orm:table name="comida" />
+      <orm:class name="Usuario" uniqueId="93838402-3883-42f9-977f-9bacbb0a524a">
+        <orm:table name="usuario" />
         <orm:identity>
           <orm:key-generator name="autoinc">
-            <orm:key-generator-member property-name="IdComida" />
+            <orm:key-generator-member property-name="Id_usuario" />
           </orm:key-generator>
-          <orm:single-field field-name="idComida" />
+          <orm:single-field field-name="id_usuario" />
         </orm:identity>
         <orm:concurrency strategy="changed" />
-        <orm:field name="idComida" property="IdComida" behavior="readwrite" uniqueId="7b725e51-be04-46ac-98fe-5f01308db1e5" type="System.Int32">
-          <orm:column name="idComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:field name="id_usuario" property="Id_usuario" behavior="readwrite" uniqueId="cd777f97-fbc3-4b3f-8e24-57fc86e629a7" type="System.Int32">
+          <orm:column name="id_usuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
         </orm:field>
-        <orm:field name="tipoComida" property="TipoComida" behavior="readwrite" uniqueId="3c8e63f9-1ec2-46b3-8ce6-fec72fc8069d" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:field name="password" property="Password" behavior="readwrite" uniqueId="ce9dc1fd-1a18-4980-908d-981ea6bae7c2" type="System.String">
+          <orm:column name="password" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
-        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="25f3763e-d665-4045-b19c-2af56dda58df" type="System.String">
-          <orm:column name="Nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="2b254663-2b1b-403a-96eb-cf43a28a832f" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
-        <orm:field name="precio" property="Precio" behavior="readwrite" uniqueId="8608f855-2437-46e6-b1ad-0f4193510b35" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column name="Precio" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:field name="apellido" property="Apellido" behavior="readwrite" uniqueId="e115a04d-6501-4606-b5b7-09de62313e74" type="System.String">
+          <orm:column name="apellido" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
-        <orm:field name="ingredientes" property="Ingredientes" behavior="readwrite" uniqueId="38753fcc-2327-4274-a508-605e7bff0b76" type="System.String">
-          <orm:column name="Ingredientes" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        <orm:field name="tipo" property="Tipo" behavior="readwrite" uniqueId="76c8395a-4316-4c47-932d-c5175a37e3e9" type="System.String">
+          <orm:column name="tipo" sql-type="nchar" nullable="true" length="10" scale="0" ado-type="UnicodeStringFixedLength" />
         </orm:field>
-        <orm:field name="observaciones" property="Observaciones" behavior="readwrite" uniqueId="a07e90c2-1d03-44d3-8321-d7fd872cc52c" type="System.String">
-          <orm:column name="Observaciones" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
+        <orm:field name="username" property="Username" behavior="readwrite" uniqueId="bcc9478a-629c-4ae4-bd76-3ae4f5e66729" type="System.String">
+          <orm:column name="username" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
         </orm:field>
-        <orm:field name="tipoComida1" property="TipoComida1" behavior="readwrite" uniqueId="ff6e8835-a264-49ca-840d-46ba8b6aed66" type="Dominio.TipoComida">
-          <orm:reference uniqueId="2930e571-699a-47d2-80a0-70f675a2f638" association-name="ComidaHasTipoComida">
-            <orm:sharedfield name="tipoComida" target-class="Dominio.TipoComida" target-field="idTipoComida" />
-            <orm:constraint name="FK__comida__TipoComi__267ABA7A" delete-action="dbdefaultrule" destination-table="TipoComida" />
+        <orm:field name="orden" property="Orden" behavior="readwrite" uniqueId="214506bc-bb0b-42ae-b3a1-78dc2e34aeb0" type="Dominio.Orden">
+          <orm:collection element-class="Dominio.Orden" inverse-field="usuario" order-by="" uniqueId="18515625-f206-4464-811c-4fa4828501b1" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Subrubro" uniqueId="4278aa1e-e569-42b6-a0a5-bdc5827c99a7">
+        <orm:table name="subrubro" />
+        <orm:identity>
+          <orm:single-field field-name="id_subrubro" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="id_subrubro" property="Id_subrubro" behavior="readwrite" uniqueId="8d5bae44-128e-477b-b33b-f073943133aa" type="System.Int32">
+          <orm:column name="id_subrubro" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="bd591a2e-c49a-4a75-8f83-6facdd6c4b48" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="id_rubro" property="Id_rubro" behavior="readwrite" uniqueId="21c43db5-5c90-4b02-a871-5665a4a2230d" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_rubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="articulo" property="Articulo" behavior="readwrite" uniqueId="e08cad9b-5a79-406d-a127-be61dd281437" type="Dominio.Articulo">
+          <orm:collection element-class="Dominio.Articulo" inverse-field="subrubro1" order-by="" uniqueId="c15e0cdb-00ac-49de-aff4-eb91583e480c" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Rubro" uniqueId="13cebd7b-8675-4007-b93f-6ac99c198252">
+        <orm:table name="rubro" />
+        <orm:identity>
+          <orm:single-field field-name="id_rubro" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="id_rubro" property="Id_rubro" behavior="readwrite" uniqueId="a7b264e4-e70e-4c78-8f3c-f384e3af7a1d" type="System.Int32">
+          <orm:column name="id_rubro" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="7bd79323-95aa-438d-ab98-a6be52638f0c" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="articulo" property="Articulo" behavior="readwrite" uniqueId="16914787-255b-4ec6-a986-b851f3a31081" type="Dominio.Articulo">
+          <orm:collection element-class="Dominio.Articulo" inverse-field="rubro1" order-by="" uniqueId="19caaae9-8536-4681-9631-5f521a7da604" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Orden" uniqueId="0ba6fb3d-bf3e-4f01-a5d1-5a6caa0e4163">
+        <orm:table name="orden" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id_orden" />
+          </orm:key-generator>
+          <orm:single-field field-name="id_orden" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="id_orden" property="Id_orden" behavior="readwrite" uniqueId="c5fb3177-1580-4ca4-848a-eb613d38a5ff" type="System.Int32">
+          <orm:column name="id_orden" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="estado" property="Estado" behavior="readwrite" uniqueId="372daf7b-65e4-4b83-8141-d212f0e0b4d4" type="System.String">
+          <orm:column name="estado" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        </orm:field>
+        <orm:field name="id_usuario" property="Id_usuario" behavior="readwrite" uniqueId="d74829bd-f0a6-4cc2-ad2b-520923fc740b" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_usuario" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="detalle_orden" property="Detalle_orden" behavior="readwrite" uniqueId="f8c05d8f-83e7-4c6c-a792-148866e948b3" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="detalle_orden" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="detalleOrden" property="DetalleOrden" behavior="readwrite" uniqueId="27104828-84d7-4855-995b-718a00a55550" type="Dominio.DetalleOrden">
+          <orm:reference uniqueId="ecd88359-c35f-4231-bc2b-65c6ad719903" association-name="OrdenHasDetalleOrden">
+            <orm:sharedfield name="detalle_orden" target-class="Dominio.DetalleOrden" target-field="id_detalleOrden" />
+            <orm:constraint name="FK_orden_detalleOrden" delete-action="dbdefaultrule" destination-table="detalleOrden" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="usuario" property="Usuario" behavior="readwrite" uniqueId="6cf5063c-1c0f-4f22-91ab-b91baaf8f294" type="Dominio.Usuario">
+          <orm:reference uniqueId="18515625-f206-4464-811c-4fa4828501b1" association-name="OrdenHasUsuario">
+            <orm:sharedfield name="id_usuario" target-class="Dominio.Usuario" target-field="id_usuario" />
+            <orm:constraint name="FK_orden_usuario" delete-action="dbdefaultrule" destination-table="usuario" />
           </orm:reference>
         </orm:field>
       </orm:class>
-      <orm:class name="Usuario" uniqueId="95009290-e9c6-48b6-be14-b45d55bf2ba5">
-        <orm:table name="usuario" />
+      <orm:class name="LineaOrden" uniqueId="100c3ecc-56a8-4eed-859e-f9dc08b8b33c">
+        <orm:table name="lineaOrden" />
         <orm:identity>
-          <orm:single-field field-name="idUsuario" />
+          <orm:single-field field-name="id_lineaOrden" />
         </orm:identity>
         <orm:concurrency strategy="changed" />
-        <orm:field name="idUsuario" property="IdUsuario" behavior="readwrite" uniqueId="e91df57f-2f60-4ff6-b6fc-07a2d0822c7a" type="System.Int32">
-          <orm:column name="idUsuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:field name="id_lineaOrden" property="Id_lineaOrden" behavior="readwrite" uniqueId="635e2165-4c88-433e-b0b0-9e165d90bd7d" type="System.Int32">
+          <orm:column name="id_lineaOrden" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
         </orm:field>
-        <orm:field name="usuario1" property="Usuario1" behavior="readwrite" uniqueId="41525a31-e48e-433d-8425-290272144a36" type="System.String">
-          <orm:column name="Usuario" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:field name="id_articulo" property="Id_articulo" behavior="readwrite" uniqueId="8452a77f-7cc2-44c8-b80e-401396a82cbc" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_articulo" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:field>
-        <orm:field name="contraseña" property="Contraseña" behavior="readwrite" uniqueId="ebfe8743-3c3e-42fb-8de4-d2d184ef18ef" type="System.String">
-          <orm:column name="Contraseña" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:field name="id_cantidad" property="Id_cantidad" behavior="readwrite" uniqueId="f326cc21-853a-4071-9d8f-46e9c01789e1" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="id_cantidad" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="articulo" property="Articulo" behavior="readwrite" uniqueId="6291d743-b776-46d8-b34a-17ffe71a1d4b" type="Dominio.Articulo">
+          <orm:reference uniqueId="0986c9f0-0ec5-4e55-a5c8-76c3a63386ed" association-name="LineaOrdenHasArticulo">
+            <orm:sharedfield name="id_articulo" target-class="Dominio.Articulo" target-field="id_articulo" />
+            <orm:constraint name="FK_lineaOrden_articulo" delete-action="dbdefaultrule" destination-table="articulo" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="detalleOrden" property="DetalleOrden" behavior="readwrite" uniqueId="9327caff-7a97-42eb-95b7-bc8644795a99" type="Dominio.DetalleOrden">
+          <orm:collection element-class="Dominio.DetalleOrden" inverse-field="lineaOrden" order-by="" uniqueId="6eb1732b-d147-435f-bcc6-f34cc02d94a0" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="DetalleOrden" uniqueId="975a9c3d-6424-4546-8d7a-6fbf24739198">
+        <orm:table name="detalleOrden" />
+        <orm:identity>
+          <orm:single-field field-name="id_detalleOrden" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="id_detalleOrden" property="Id_detalleOrden" behavior="readwrite" uniqueId="3046ba13-b9c5-4c87-8227-59b32926189f" type="System.Int32">
+          <orm:column name="id_detalleOrden" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="id_lineaOrden" property="Id_lineaOrden" behavior="readwrite" uniqueId="1fd6993b-b96c-40d0-9cd3-321c959d4fef" type="System.Int32">
+          <orm:column name="id_lineaOrden" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="lineaOrden" property="LineaOrden" behavior="readwrite" uniqueId="0d239c70-bcec-4f6e-90dd-96b40ce7e278" type="Dominio.LineaOrden">
+          <orm:reference uniqueId="6eb1732b-d147-435f-bcc6-f34cc02d94a0" association-name="DetalleOrdenHasLineaOrden">
+            <orm:sharedfield name="id_lineaOrden" target-class="Dominio.LineaOrden" target-field="id_lineaOrden" />
+            <orm:constraint name="FK_detalleOrden_lineaOrden" delete-action="dbdefaultrule" destination-table="lineaOrden" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="orden" property="Orden" behavior="readwrite" uniqueId="864974f6-566e-4d15-9332-268184a82152" type="Dominio.Orden">
+          <orm:collection element-class="Dominio.Orden" inverse-field="detalleOrden" order-by="" uniqueId="ecd88359-c35f-4231-bc2b-65c6ad719903" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Articulo" uniqueId="8f1eae6e-1cba-46bb-a770-daa7fdbc5977">
+        <orm:table name="articulo" />
+        <orm:identity>
+          <orm:single-field field-name="id_articulo" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="id_articulo" property="Id_articulo" behavior="readwrite" uniqueId="4ff11713-cee1-449f-be4d-1a8f0e932627" type="System.Int32">
+          <orm:column name="id_articulo" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="nombre" property="Nombre" behavior="readwrite" uniqueId="ef5357ff-32f9-456b-a7e4-c612ca5ac021" type="System.String">
+          <orm:column name="nombre" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="precio" property="Precio" behavior="readwrite" uniqueId="9604534d-7c93-4524-b795-50e7eb7bf179" type="System.Nullable`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="precio" sql-type="float" nullable="true" length="0" scale="0" ado-type="Double" />
+        </orm:field>
+        <orm:field name="observacion" property="Observacion" behavior="readwrite" uniqueId="6840131b-8587-4ad1-9022-592e1f5c8a26" type="System.String">
+          <orm:column name="observacion" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        </orm:field>
+        <orm:field name="rubro" property="Rubro" behavior="readwrite" uniqueId="67973093-7c1f-4d0e-ad4d-d153a4b60164" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="rubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="subrubro" property="Subrubro" behavior="readwrite" uniqueId="cbbd7cdc-786c-4455-9ea7-ad555a156f0d" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="subrubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="rubro1" property="Rubro1" behavior="readwrite" uniqueId="755397db-68cb-4156-bee3-79201e78e2fa" type="Dominio.Rubro">
+          <orm:reference uniqueId="19caaae9-8536-4681-9631-5f521a7da604" association-name="ArticuloHasRubro">
+            <orm:sharedfield name="rubro" target-class="Dominio.Rubro" target-field="id_rubro" />
+            <orm:constraint name="FK_articulo_rubro" delete-action="dbdefaultrule" destination-table="rubro" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="subrubro1" property="Subrubro1" behavior="readwrite" uniqueId="dd96567c-12f3-40c6-bd25-c1e60353c34c" type="Dominio.Subrubro">
+          <orm:reference uniqueId="c15e0cdb-00ac-49de-aff4-eb91583e480c" association-name="ArticuloHasSubrubro">
+            <orm:sharedfield name="subrubro" target-class="Dominio.Subrubro" target-field="id_subrubro" />
+            <orm:constraint name="FK_articulo_subrubro" delete-action="dbdefaultrule" destination-table="subrubro" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="lineaOrden" property="LineaOrden" behavior="readwrite" uniqueId="301d707d-9154-489a-b162-f4fcaeb13d6d" type="Dominio.LineaOrden">
+          <orm:collection element-class="Dominio.LineaOrden" inverse-field="articulo" order-by="" uniqueId="0986c9f0-0ec5-4e55-a5c8-76c3a63386ed" />
         </orm:field>
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
-      <orm:table name="TipoComida">
-        <orm:column name="idTipoComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
-        <orm:column name="Nombre" sql-type="varchar" nullable="true" length="100" scale="0" ado-type="StringVariableLength" />
+      <orm:table name="usuario">
+        <orm:column name="id_usuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="password" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="apellido" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="tipo" sql-type="nchar" nullable="true" length="10" scale="0" ado-type="UnicodeStringFixedLength" />
+        <orm:column name="username" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
       </orm:table>
-      <orm:table name="comida">
-        <orm:column name="idComida" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
-        <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="Nombre" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
-        <orm:column name="Precio" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="Ingredientes" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
-        <orm:column name="Observaciones" sql-type="varchar(max)" nullable="true" length="0" scale="0" ado-type="StringInfiniteLength" />
-        <orm:constraint name="FK__comida__TipoComi__267ABA7A" delete-action="dbdefaultrule" destination-table="TipoComida">
-          <orm:column name="TipoComida" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+      <orm:table name="subrubro">
+        <orm:column name="id_subrubro" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="id_rubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="rubro">
+        <orm:column name="id_rubro" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+      </orm:table>
+      <orm:table name="orden">
+        <orm:column name="id_orden" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="estado" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+        <orm:column name="id_usuario" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="detalle_orden" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:constraint name="FK_orden_detalleOrden" delete-action="dbdefaultrule" destination-table="detalleOrden">
+          <orm:column name="detalle_orden" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+        <orm:constraint name="FK_orden_usuario" delete-action="dbdefaultrule" destination-table="usuario">
+          <orm:column name="id_usuario" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:constraint>
       </orm:table>
-      <orm:table name="Usuarios">
-        <orm:column name="idUsuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
-        <orm:column name="Nombre" sql-type="nchar" nullable="true" length="10" scale="0" ado-type="UnicodeStringFixedLength" />
-        <orm:column name="Apellido" sql-type="nchar" nullable="true" length="10" scale="0" ado-type="UnicodeStringFixedLength" />
-        <orm:column name="Edad" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="Direccion" sql-type="nvarchar" nullable="true" length="100" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="Telefono" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
-        <orm:column name="Localidad" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="Usuario" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="Contraseña" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+      <orm:table name="lineaOrden">
+        <orm:column name="id_lineaOrden" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="id_articulo" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="id_cantidad" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:constraint name="FK_lineaOrden_articulo" delete-action="dbdefaultrule" destination-table="articulo">
+          <orm:column name="id_articulo" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
       </orm:table>
-      <orm:table name="usuario">
-        <orm:column name="idUsuario" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
-        <orm:column name="Usuario" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
-        <orm:column name="Contraseña" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
+      <orm:table name="detalleOrden">
+        <orm:column name="id_detalleOrden" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="id_lineaOrden" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:constraint name="FK_detalleOrden_lineaOrden" delete-action="dbdefaultrule" destination-table="lineaOrden">
+          <orm:column name="id_lineaOrden" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="articulo">
+        <orm:column name="id_articulo" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nombre" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="precio" sql-type="float" nullable="true" length="0" scale="0" ado-type="Double" />
+        <orm:column name="observacion" sql-type="nvarchar(max)" nullable="true" length="0" scale="0" ado-type="UnicodeStringInfiniteLength" />
+        <orm:column name="rubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="subrubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:constraint name="FK_articulo_rubro" delete-action="dbdefaultrule" destination-table="rubro">
+          <orm:column name="rubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+        <orm:constraint name="FK_articulo_subrubro" delete-action="dbdefaultrule" destination-table="subrubro">
+          <orm:column name="subrubro" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
       </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
@@ -108,9 +256,9 @@
     </orm:relational-naming-settings>
   </orm:orm>
   <ModelSettings xmlns="">
-    <AppConfigConnectionPropertyName>SoftwareComandasConnection</AppConfigConnectionPropertyName>
-    <AppConfigConnectionString>data source=HOME-PC\SQLCHRISTIAN;initial catalog=SoftwareComandas;integrated security=True</AppConfigConnectionString>
-    <InitialCatalog>SoftwareComandas</InitialCatalog>
+    <AppConfigConnectionPropertyName>TpfinalwebConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>data source=SANTIAGO;initial catalog=tpfinalweb;integrated security=True</AppConfigConnectionString>
+    <InitialCatalog>tpfinalweb</InitialCatalog>
     <NamingSettings>
       <ClassRules>
         <CaseMode>PascalCase</CaseMode>
@@ -123,11 +271,11 @@
         <CaseMode>PascalCase</CaseMode>
       </PropertyRules>
       <NavigationPropertyRules>
+        <PluralizationModeCollections>Singularize</PluralizationModeCollections>
         <IsPrefixSuffixEnabled>false</IsPrefixSuffixEnabled>
       </NavigationPropertyRules>
     </NamingSettings>
     <CodeGenerationSettings>
-      <OutputProjectName>Dominio</OutputProjectName>
       <MappingDefinitionType>Xml</MappingDefinitionType>
     </CodeGenerationSettings>
     <SchemaUpdateSettings />
@@ -139,55 +287,193 @@
     </BackendConfigurationSettings>
   </ModelSettings>
   <Types>
-    <DomainClass Id="66e610d0-7c97-4008-bc55-993f376227ff" name="TipoComida" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
-      <Property Id="3c69672f-9594-40bd-b8e3-d13ddaeb2882" name="IdTipoComida" type="Int32" label="IdTipoComida : Int32" kind="Persistent" identity="true" fieldName="idTipoComida" />
-      <Property Id="91576e6a-3cc2-4921-a996-ddc991b52b6a" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+    <DomainClass Id="93838402-3883-42f9-977f-9bacbb0a524a" name="Usuario" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id_usuario">
+      <Property Id="cd777f97-fbc3-4b3f-8e24-57fc86e629a7" name="Id_usuario" type="Int32" label="Id_usuario : Int32" kind="Persistent" identity="true" fieldName="id_usuario" />
+      <Property Id="e115a04d-6501-4606-b5b7-09de62313e74" name="Apellido" label="Apellido : String" kind="Persistent" fieldName="apellido" />
+      <Property Id="2b254663-2b1b-403a-96eb-cf43a28a832f" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <Property Id="ce9dc1fd-1a18-4980-908d-981ea6bae7c2" name="Password" label="Password : String" kind="Persistent" fieldName="password" />
+      <Property Id="76c8395a-4316-4c47-932d-c5175a37e3e9" name="Tipo" label="Tipo : String" kind="Persistent" fieldName="tipo" />
+      <Property Id="bcc9478a-629c-4ae4-bd76-3ae4f5e66729" name="Username" label="Username : String" kind="Persistent" fieldName="username" />
       <navigationalProperties>
-        <classHasNavigationalProperties Id="3a4a6f84-6045-4965-9b71-ee233fedbefa">
-          <NavigationalProperty Id="cd049966-416d-4d49-b131-0c019f4245f2" name="Comidas" type="IList&lt;Comida&gt;" label="Comidas : IList&lt;Comida&gt;" nullable="true" kind="Persistent" fieldName="comidas" isDependent="false" isManaged="false" />
+        <classHasNavigationalProperties Id="f018a2f6-04c2-4162-aa77-48f12ac38501">
+          <NavigationalProperty Id="214506bc-bb0b-42ae-b3a1-78dc2e34aeb0" name="Orden" type="IList&lt;Orden&gt;" label="Orden : IList&lt;Orden&gt;" nullable="true" kind="Persistent" fieldName="orden" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
-    <DomainClass Id="741512dd-9d45-4323-9c51-fcfe11c6a22d" name="Comida" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="IdComida">
-      <Property Id="7b725e51-be04-46ac-98fe-5f01308db1e5" name="IdComida" type="Int32" label="IdComida : Int32" kind="Persistent" identity="true" fieldName="idComida" />
-      <Property Id="38753fcc-2327-4274-a508-605e7bff0b76" name="Ingredientes" label="Ingredientes : String" kind="Persistent" fieldName="ingredientes" />
-      <Property Id="25f3763e-d665-4045-b19c-2af56dda58df" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
-      <Property Id="a07e90c2-1d03-44d3-8321-d7fd872cc52c" name="Observaciones" label="Observaciones : String" kind="Persistent" fieldName="observaciones" />
-      <Property Id="8608f855-2437-46e6-b1ad-0f4193510b35" name="Precio" type="Int32" label="Precio : Int32" nullable="true" kind="Persistent" fieldName="precio" />
-      <Property Id="3c8e63f9-1ec2-46b3-8ce6-fec72fc8069d" name="TipoComida" type="Int32" label="TipoComida : Int32" nullable="true" kind="Persistent" fieldName="tipoComida" />
+    <DomainClass Id="4278aa1e-e569-42b6-a0a5-bdc5827c99a7" name="Subrubro" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="8d5bae44-128e-477b-b33b-f073943133aa" name="Id_subrubro" type="Int32" label="Id_subrubro : Int32" kind="Persistent" identity="true" fieldName="id_subrubro" />
+      <Property Id="21c43db5-5c90-4b02-a871-5665a4a2230d" name="Id_rubro" type="Int32" label="Id_rubro : Int32" nullable="true" kind="Persistent" fieldName="id_rubro" />
+      <Property Id="bd591a2e-c49a-4a75-8f83-6facdd6c4b48" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="64834f0e-3432-4009-98ed-e59f4ed731ab">
+          <NavigationalProperty Id="e08cad9b-5a79-406d-a127-be61dd281437" name="Articulo" type="IList&lt;Articulo&gt;" label="Articulo : IList&lt;Articulo&gt;" nullable="true" kind="Persistent" fieldName="articulo" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="13cebd7b-8675-4007-b93f-6ac99c198252" name="Rubro" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="a7b264e4-e70e-4c78-8f3c-f384e3af7a1d" name="Id_rubro" type="Int32" label="Id_rubro : Int32" kind="Persistent" identity="true" fieldName="id_rubro" />
+      <Property Id="7bd79323-95aa-438d-ab98-a6be52638f0c" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="ecc7ffbe-1e10-40e9-9980-818aec55d06c">
+          <NavigationalProperty Id="16914787-255b-4ec6-a986-b851f3a31081" name="Articulo" type="IList&lt;Articulo&gt;" label="Articulo : IList&lt;Articulo&gt;" nullable="true" kind="Persistent" fieldName="articulo" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="0ba6fb3d-bf3e-4f01-a5d1-5a6caa0e4163" name="Orden" namespace="Dominio" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id_orden">
+      <Property Id="c5fb3177-1580-4ca4-848a-eb613d38a5ff" name="Id_orden" type="Int32" label="Id_orden : Int32" kind="Persistent" identity="true" fieldName="id_orden" />
+      <Property Id="f8c05d8f-83e7-4c6c-a792-148866e948b3" name="Detalle_orden" type="Int32" label="Detalle_orden : Int32" nullable="true" kind="Persistent" fieldName="detalle_orden" />
+      <Property Id="372daf7b-65e4-4b83-8141-d212f0e0b4d4" name="Estado" label="Estado : String" kind="Persistent" fieldName="estado" />
+      <Property Id="d74829bd-f0a6-4cc2-ad2b-520923fc740b" name="Id_usuario" type="Int32" label="Id_usuario : Int32" nullable="true" kind="Persistent" fieldName="id_usuario" />
       <AssociationTargets>
-        <Association Id="2930e571-699a-47d2-80a0-70f675a2f638" SourceMultiplicity="ZeroOne" name="ComidaHasTipoComida">
-          <DomainClassMoniker name="/entidadDominio/TipoComida" />
+        <Association Id="ecd88359-c35f-4231-bc2b-65c6ad719903" SourceMultiplicity="ZeroOne" name="OrdenHasDetalleOrden">
+          <DomainClassMoniker name="/entidadDominio/DetalleOrden" />
           <targetNavigationalProperty>
-            <associationDefinesTargetProperty Id="12aa5d6a-2c75-4eca-807f-616ba93c015f">
-              <NavigationalPropertyMoniker name="/entidadDominio/TipoComida/Comidas" />
+            <associationDefinesTargetProperty Id="8d21c572-0498-4cf8-b98a-1bd69d135ed6">
+              <NavigationalPropertyMoniker name="/entidadDominio/DetalleOrden/Orden" />
             </associationDefinesTargetProperty>
           </targetNavigationalProperty>
           <sourceNavigationalProperty>
-            <associationDefinesSourceProperty Id="cefcc809-a86d-4ec2-9b2b-e6653624338b">
-              <NavigationalPropertyMoniker name="/entidadDominio/Comida/TipoComida1" />
+            <associationDefinesSourceProperty Id="199a22db-3cfa-457d-a84b-82f9267dce87">
+              <NavigationalPropertyMoniker name="/entidadDominio/Orden/DetalleOrden" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="18515625-f206-4464-811c-4fa4828501b1" SourceMultiplicity="ZeroOne" name="OrdenHasUsuario">
+          <DomainClassMoniker name="/entidadDominio/Usuario" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="a0a54171-a8e3-45b7-9f63-8316a005a504">
+              <NavigationalPropertyMoniker name="/entidadDominio/Usuario/Orden" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="da51afda-cd77-48b3-a5eb-0adb1bf317e2">
+              <NavigationalPropertyMoniker name="/entidadDominio/Orden/Usuario" />
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
       </AssociationTargets>
       <navigationalProperties>
-        <classHasNavigationalProperties Id="1ba4e514-a590-417e-84f1-8124922552e0">
-          <NavigationalProperty Id="ff6e8835-a264-49ca-840d-46ba8b6aed66" name="TipoComida1" type="TipoComida" label="TipoComida1 : TipoComida" nullable="true" kind="Persistent" fieldName="tipoComida1" isDependent="false" isManaged="false" />
+        <classHasNavigationalProperties Id="c037d1ca-a9af-48e7-b247-89d16537bc54">
+          <NavigationalProperty Id="27104828-84d7-4855-995b-718a00a55550" name="DetalleOrden" type="DetalleOrden" label="DetalleOrden : DetalleOrden" nullable="true" kind="Persistent" fieldName="detalleOrden" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="225b1fc3-7149-439e-9ffb-a90e5f7ec5c3">
+          <NavigationalProperty Id="6cf5063c-1c0f-4f22-91ab-b91baaf8f294" name="Usuario" type="Usuario" label="Usuario : Usuario" nullable="true" kind="Persistent" fieldName="usuario" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
-    <DomainClass Id="95009290-e9c6-48b6-be14-b45d55bf2ba5" name="Usuario" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
-      <Property Id="e91df57f-2f60-4ff6-b6fc-07a2d0822c7a" name="IdUsuario" type="Int32" label="IdUsuario : Int32" kind="Persistent" identity="true" fieldName="idUsuario" />
-      <Property Id="ebfe8743-3c3e-42fb-8de4-d2d184ef18ef" name="Contraseña" label="Contraseña : String" kind="Persistent" fieldName="contraseña" />
-      <Property Id="41525a31-e48e-433d-8425-290272144a36" name="Usuario1" label="Usuario1 : String" kind="Persistent" fieldName="usuario1" />
+    <DomainClass Id="100c3ecc-56a8-4eed-859e-f9dc08b8b33c" name="LineaOrden" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="635e2165-4c88-433e-b0b0-9e165d90bd7d" name="Id_lineaOrden" type="Int32" label="Id_lineaOrden : Int32" kind="Persistent" identity="true" fieldName="id_lineaOrden" />
+      <Property Id="8452a77f-7cc2-44c8-b80e-401396a82cbc" name="Id_articulo" type="Int32" label="Id_articulo : Int32" nullable="true" kind="Persistent" fieldName="id_articulo" />
+      <Property Id="f326cc21-853a-4071-9d8f-46e9c01789e1" name="Id_cantidad" type="Int32" label="Id_cantidad : Int32" nullable="true" kind="Persistent" fieldName="id_cantidad" />
+      <AssociationTargets>
+        <Association Id="0986c9f0-0ec5-4e55-a5c8-76c3a63386ed" SourceMultiplicity="ZeroOne" name="LineaOrdenHasArticulo">
+          <DomainClassMoniker name="/entidadDominio/Articulo" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="57c415bb-e733-4bdd-bd58-e1d5055060b8">
+              <NavigationalPropertyMoniker name="/entidadDominio/Articulo/LineaOrden" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="0e6ea27e-d750-463f-bd55-2c4c19e43587">
+              <NavigationalPropertyMoniker name="/entidadDominio/LineaOrden/Articulo" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="11511f94-f0b5-4699-ac24-1b7e050c52d6">
+          <NavigationalProperty Id="6291d743-b776-46d8-b34a-17ffe71a1d4b" name="Articulo" type="Articulo" label="Articulo : Articulo" nullable="true" kind="Persistent" fieldName="articulo" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="192b9dbf-86a6-42ca-9037-09f48bb8f69a">
+          <NavigationalProperty Id="9327caff-7a97-42eb-95b7-bc8644795a99" name="DetalleOrden" type="IList&lt;DetalleOrden&gt;" label="DetalleOrden : IList&lt;DetalleOrden&gt;" nullable="true" kind="Persistent" fieldName="detalleOrden" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="975a9c3d-6424-4546-8d7a-6fbf24739198" name="DetalleOrden" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="3046ba13-b9c5-4c87-8227-59b32926189f" name="Id_detalleOrden" type="Int32" label="Id_detalleOrden : Int32" kind="Persistent" identity="true" fieldName="id_detalleOrden" />
+      <Property Id="1fd6993b-b96c-40d0-9cd3-321c959d4fef" name="Id_lineaOrden" type="Int32" label="Id_lineaOrden : Int32" kind="Persistent" fieldName="id_lineaOrden" />
+      <AssociationTargets>
+        <Association Id="6eb1732b-d147-435f-bcc6-f34cc02d94a0" SourceMultiplicity="One" name="DetalleOrdenHasLineaOrden">
+          <DomainClassMoniker name="/entidadDominio/LineaOrden" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="43ec82af-3d99-43c8-8ad5-48431992c17f">
+              <NavigationalPropertyMoniker name="/entidadDominio/LineaOrden/DetalleOrden" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="07bf4559-8d1b-4991-8278-ce7b64015295">
+              <NavigationalPropertyMoniker name="/entidadDominio/DetalleOrden/LineaOrden" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="98b0c0a0-5298-4ac1-b0c6-164ed7c80abc">
+          <NavigationalProperty Id="864974f6-566e-4d15-9332-268184a82152" name="Orden" type="IList&lt;Orden&gt;" label="Orden : IList&lt;Orden&gt;" nullable="true" kind="Persistent" fieldName="orden" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="38c9e0db-aaa5-4f23-bafc-805b3ae2a5b3">
+          <NavigationalProperty Id="0d239c70-bcec-4f6e-90dd-96b40ce7e278" name="LineaOrden" type="LineaOrden" label="LineaOrden : LineaOrden" nullable="true" kind="Persistent" fieldName="lineaOrden" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="8f1eae6e-1cba-46bb-a770-daa7fdbc5977" name="Articulo" namespace="Dominio" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="4ff11713-cee1-449f-be4d-1a8f0e932627" name="Id_articulo" type="Int32" label="Id_articulo : Int32" kind="Persistent" identity="true" fieldName="id_articulo" />
+      <Property Id="ef5357ff-32f9-456b-a7e4-c612ca5ac021" name="Nombre" label="Nombre : String" kind="Persistent" fieldName="nombre" />
+      <Property Id="6840131b-8587-4ad1-9022-592e1f5c8a26" name="Observacion" label="Observacion : String" kind="Persistent" fieldName="observacion" />
+      <Property Id="9604534d-7c93-4524-b795-50e7eb7bf179" name="Precio" type="Double" label="Precio : Double" nullable="true" kind="Persistent" fieldName="precio" />
+      <Property Id="67973093-7c1f-4d0e-ad4d-d153a4b60164" name="Rubro" type="Int32" label="Rubro : Int32" nullable="true" kind="Persistent" fieldName="rubro" />
+      <Property Id="cbbd7cdc-786c-4455-9ea7-ad555a156f0d" name="Subrubro" type="Int32" label="Subrubro : Int32" nullable="true" kind="Persistent" fieldName="subrubro" />
+      <AssociationTargets>
+        <Association Id="19caaae9-8536-4681-9631-5f521a7da604" SourceMultiplicity="ZeroOne" name="ArticuloHasRubro">
+          <DomainClassMoniker name="/entidadDominio/Rubro" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="2155f33c-3b04-4a85-b999-457557e5cb96">
+              <NavigationalPropertyMoniker name="/entidadDominio/Rubro/Articulo" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="1fc7fb8e-5a74-4dbd-ac33-240c829d14ea">
+              <NavigationalPropertyMoniker name="/entidadDominio/Articulo/Rubro1" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="c15e0cdb-00ac-49de-aff4-eb91583e480c" SourceMultiplicity="ZeroOne" name="ArticuloHasSubrubro">
+          <DomainClassMoniker name="/entidadDominio/Subrubro" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="4f4cd128-6320-4af4-a2ef-b522fc243b20">
+              <NavigationalPropertyMoniker name="/entidadDominio/Subrubro/Articulo" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="5445db60-788c-40b9-ad26-fe76a463e949">
+              <NavigationalPropertyMoniker name="/entidadDominio/Articulo/Subrubro1" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="5e2cd2cc-fe7a-4035-a608-4ffcc472f622">
+          <NavigationalProperty Id="301d707d-9154-489a-b162-f4fcaeb13d6d" name="LineaOrden" type="IList&lt;LineaOrden&gt;" label="LineaOrden : IList&lt;LineaOrden&gt;" nullable="true" kind="Persistent" fieldName="lineaOrden" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="4f75e95a-684f-44f5-9749-8a29f8a6782c">
+          <NavigationalProperty Id="755397db-68cb-4156-bee3-79201e78e2fa" name="Rubro1" type="Rubro" label="Rubro1 : Rubro" nullable="true" kind="Persistent" fieldName="rubro1" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="6c0f9534-8b8a-429e-82ff-8641fe9466e3">
+          <NavigationalProperty Id="dd96567c-12f3-40c6-bd25-c1e60353c34c" name="Subrubro1" type="Subrubro" label="Subrubro1 : Subrubro" nullable="true" kind="Persistent" fieldName="subrubro1" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
     </DomainClass>
   </Types>
   <domainContext>
-    <domainModelHasDomainContext Id="80c8226a-734c-4dbb-aa39-a0c40a3df562">
+    <domainModelHasDomainContext Id="69c510be-5ca8-46e2-93db-fac995f5003f">
       <domainContainer name="entidadDominio" namespace="Dominio" showPropertiesCompartment="true">
-        <entitySetProperty name="TipoComidas" namespace="Dominio" type="TipoComida" label="TipoComidas : IQueryable&lt;Dominio.TipoComida&gt;" />
-        <entitySetProperty name="Comidas" namespace="Dominio" type="Comida" label="Comidas : IQueryable&lt;Dominio.Comida&gt;" />
         <entitySetProperty name="Usuarios" namespace="Dominio" type="Usuario" label="Usuarios : IQueryable&lt;Dominio.Usuario&gt;" />
+        <entitySetProperty name="Subrubros" namespace="Dominio" type="Subrubro" label="Subrubros : IQueryable&lt;Dominio.Subrubro&gt;" />
+        <entitySetProperty name="Rubros" namespace="Dominio" type="Rubro" label="Rubros : IQueryable&lt;Dominio.Rubro&gt;" />
+        <entitySetProperty name="Ordens" namespace="Dominio" type="Orden" label="Ordens : IQueryable&lt;Dominio.Orden&gt;" />
+        <entitySetProperty name="LineaOrdens" namespace="Dominio" type="LineaOrden" label="LineaOrdens : IQueryable&lt;Dominio.LineaOrden&gt;" />
+        <entitySetProperty name="DetalleOrdens" namespace="Dominio" type="DetalleOrden" label="DetalleOrdens : IQueryable&lt;Dominio.DetalleOrden&gt;" />
+        <entitySetProperty name="Articulos" namespace="Dominio" type="Articulo" label="Articulos : IQueryable&lt;Dominio.Articulo&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

@@ -17,32 +17,23 @@ namespace softwareComandas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
-
-        protected void btnIngresar_Click(object sender, EventArgs e)
+        protected void btn_validar_Click(object sender, EventArgs e)
         {
-            IngresarDatos();
+            validar();
         }
-
-        private void IngresarDatos() //Botón de de ingreso a sesion de usuario, comparando los ID en base de datos
+        private void validar()
         {
-            
-            DataTable objdt = new DataTable();
-            objdt = usuarioNego.CompararUsuario(txtidUser.Text, txtUsuario.Text, txtpassword.Text);
-   
-            if (objdt.Rows.Count !=  0)
+            Usuario u = usuarioNego.validar_usuario(input_usuario.Value, input_password.Value);
+            if (u != null)
             {
-                Session["IniciarSesion"] = objdt;
+                Session["usuario"] = input_usuario.Value;
                 Response.Redirect("NuevaOrden.aspx");
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Correct", "alert('Error en Ingreso de Usuario Y contraseña.')", true);
-
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Correct", "alert('Wrong user id aand password.')", true);
             }
         }
-
-       
     }
 }
