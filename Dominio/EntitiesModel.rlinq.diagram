@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityDiagrams>
-  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11.625, 9.125" name="entidadDominio" isDefault="true">
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11.625, 9.125" name="entidadDominio" fillColor="62, 62, 65" isDefault="true">
     <DomainModelMoniker name="/entidadDominio" />
     <nestedChildShapes>
       <classShape Id="916a9c5e-1480-4311-a521-b202a9465778" absoluteBounds="7.625, 2, 1.5, 2.7242789713541669">
