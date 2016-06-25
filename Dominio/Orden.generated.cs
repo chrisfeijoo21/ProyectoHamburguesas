@@ -76,6 +76,19 @@ namespace Dominio
 			}
 		}
 		
+		private DateTime? fecha;
+		public virtual DateTime? Fecha
+		{
+			get
+			{
+				return this.fecha;
+			}
+			set
+			{
+				this.fecha = value;
+			}
+		}
+		
 		private DetalleOrden detalleOrden;
 		public virtual DetalleOrden DetalleOrden
 		{

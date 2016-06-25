@@ -89,6 +89,9 @@
         <orm:field name="detalle_orden" property="Detalle_orden" behavior="readwrite" uniqueId="f8c05d8f-83e7-4c6c-a792-148866e948b3" type="System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
           <orm:column name="detalle_orden" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:field>
+        <orm:field name="fecha" property="Fecha" behavior="readwrite" uniqueId="c23ca5f6-4add-4f20-9004-562be73bacac" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="fecha" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
+        </orm:field>
         <orm:field name="detalleOrden" property="DetalleOrden" behavior="readwrite" uniqueId="27104828-84d7-4855-995b-718a00a55550" type="Dominio.DetalleOrden">
           <orm:reference uniqueId="ecd88359-c35f-4231-bc2b-65c6ad719903" association-name="OrdenHasDetalleOrden">
             <orm:sharedfield name="detalle_orden" target-class="Dominio.DetalleOrden" target-field="id_detalleOrden" />
@@ -213,6 +216,7 @@
         <orm:column name="estado" sql-type="nvarchar" nullable="true" length="50" scale="0" ado-type="UnicodeStringVariableLength" />
         <orm:column name="id_usuario" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         <orm:column name="detalle_orden" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="fecha" sql-type="datetime" nullable="true" length="0" scale="0" ado-type="DateTime" />
         <orm:constraint name="FK_orden_detalleOrden" delete-action="dbdefaultrule" destination-table="detalleOrden">
           <orm:column name="detalle_orden" sql-type="int" nullable="true" length="0" scale="0" ado-type="Int32" />
         </orm:constraint>
@@ -257,7 +261,7 @@
   </orm:orm>
   <ModelSettings xmlns="">
     <AppConfigConnectionPropertyName>TpfinalwebConnection</AppConfigConnectionPropertyName>
-    <AppConfigConnectionString>data source=SANTIAGO;initial catalog=tpfinalweb;integrated security=True</AppConfigConnectionString>
+    <AppConfigConnectionString>data source=HOME-PC\SQLCHRISTIAN;initial catalog=tpfinalweb;integrated security=True</AppConfigConnectionString>
     <InitialCatalog>tpfinalweb</InitialCatalog>
     <NamingSettings>
       <ClassRules>
@@ -324,6 +328,7 @@
       <Property Id="f8c05d8f-83e7-4c6c-a792-148866e948b3" name="Detalle_orden" type="Int32" label="Detalle_orden : Int32" nullable="true" kind="Persistent" fieldName="detalle_orden" />
       <Property Id="372daf7b-65e4-4b83-8141-d212f0e0b4d4" name="Estado" label="Estado : String" kind="Persistent" fieldName="estado" />
       <Property Id="d74829bd-f0a6-4cc2-ad2b-520923fc740b" name="Id_usuario" type="Int32" label="Id_usuario : Int32" nullable="true" kind="Persistent" fieldName="id_usuario" />
+      <Property Id="c23ca5f6-4add-4f20-9004-562be73bacac" name="Fecha" type="DateTime" label="Fecha : DateTime" nullable="true" kind="Persistent" fieldName="fecha" />
       <AssociationTargets>
         <Association Id="ecd88359-c35f-4231-bc2b-65c6ad719903" SourceMultiplicity="ZeroOne" name="OrdenHasDetalleOrden">
           <DomainClassMoniker name="/entidadDominio/DetalleOrden" />
