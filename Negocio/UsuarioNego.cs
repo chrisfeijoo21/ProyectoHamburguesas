@@ -33,5 +33,9 @@ namespace Negocio
         {
             return usuarioRepo.ListaUsuariosPorID(id_usuario);
         }
+        public void eliminar_usuario(Usuario u)
+        {
+            usuarioRepo.eliminar_usuario(u);
+        }
     }
 }

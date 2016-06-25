@@ -55,5 +55,13 @@ namespace Repositorio
                 return usuario;
             }
         }
+        public void eliminar_usuario(Usuario u)
+        {
+            using (entidadDominio dominio = new entidadDominio())
+            {
+                dominio.Delete(u); //no anda
+                dominio.SaveChanges();
+            }
+        }
     }
 }

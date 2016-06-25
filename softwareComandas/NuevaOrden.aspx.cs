@@ -13,7 +13,7 @@ namespace softwareComandas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
+            if (global.usuario == null)
             {
                 Response.Redirect("IniciarSesion.aspx");
             }

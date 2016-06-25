@@ -371,6 +371,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="global.cs" />
     <Compile Include="IniciarSesion.aspx.cs">
       <DependentUpon>IniciarSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
