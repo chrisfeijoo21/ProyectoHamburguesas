@@ -63,6 +63,19 @@ namespace Dominio
 			}
 		}
 		
+		private Rubro rubro;
+		public virtual Rubro Rubro
+		{
+			get
+			{
+				return this.rubro;
+			}
+			set
+			{
+				this.rubro = value;
+			}
+		}
+		
 		private IList<Articulo> articulo = new List<Articulo>();
 		public virtual IList<Articulo> Articulo
 		{

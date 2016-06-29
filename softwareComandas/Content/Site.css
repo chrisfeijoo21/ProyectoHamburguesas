@@ -32,14 +32,15 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
 }
 
-.white{
-    color:#000;
-    background-color:#fff;
+.white {
+    color: #000;
+    background-color: #fff;
 }
 
 .btn-facebook {
@@ -75,3 +76,11 @@ input[type="select"] {
     .btn-facebook.active {
         background-color: #0d2456 \9 !important;
     }
+
+/*CUSTOM*/
+a.navbar-brand img {
+    margin-top: -5px;
+}
+.navbar-default .navbar-brand {
+  color: #6f5499;
+}

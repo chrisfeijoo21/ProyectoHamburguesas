@@ -70,12 +70,18 @@ namespace softwareComandas
         {
 
 
-
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
+        }
+
+        protected void id_logout_Click(object sender, EventArgs e)
+        {
+            Session["username"] = null;
+            Session["userrol"] = null;
+            Response.Redirect("IniciarSesion.aspx");
         }
     }
 

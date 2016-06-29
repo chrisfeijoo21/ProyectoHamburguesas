@@ -7,7 +7,6 @@ using Dominio;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Data.OleDb;
 
 namespace Repositorio
 {
@@ -29,7 +28,6 @@ namespace Repositorio
                 dominio.SaveChanges();
             }
         }
-
         public IEnumerable<Usuario> mostrar_usuarios()
         {
             using(entidadDominio dominio = new entidadDominio())
@@ -40,11 +38,11 @@ namespace Repositorio
         }
         public Usuario validar_usuario(string usuario, string password)
         {
-            Usuario u = null;
+            Usuario usuario_temp = null;
             using (entidadDominio dominio = new entidadDominio())
             {
-                u = dominio.Usuarios.Where(c => c.Username == usuario && c.Password == password).FirstOrDefault();
-                return u;
+                usuario_temp = dominio.Usuarios.Where(c => c.Username == usuario && c.Password == password).FirstOrDefault();
+                return usuario_temp;
             }
         }
         public Usuario ListaUsuariosPorID(int id_usuario)
@@ -55,11 +53,11 @@ namespace Repositorio
                 return usuario;
             }
         }
-        public void eliminar_usuario(Usuario u)
+        public void eliminar_usuario(Usuario usuario)
         {
             using (entidadDominio dominio = new entidadDominio())
             {
-                dominio.Delete(u); //no anda
+                dominio.Delete(usuario); //no anda
                 dominio.SaveChanges();
             }
         }

@@ -59,6 +59,15 @@ namespace Dominio
 			}
 		}
 		
+		private IList<Subrubro> subrubro = new List<Subrubro>();
+		public virtual IList<Subrubro> Subrubro
+		{
+			get
+			{
+				return this.subrubro;
+			}
+		}
+		
 	}
 }
 #pragma warning restore 1591

@@ -47,7 +47,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticuloRepo.cs" />
+    <Compile Include="DetalleOrdenRepo.cs" />
+    <Compile Include="LineaOrdenRepo.cs" />
+    <Compile Include="OrdenRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RubroRepo.cs" />
+    <Compile Include="SubRubroRepo.cs" />
     <Compile Include="UsuarioRepo.cs" />
   </ItemGroup>
   <ItemGroup>

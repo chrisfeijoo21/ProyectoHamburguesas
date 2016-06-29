@@ -47,7 +47,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticuloNego.cs" />
+    <Compile Include="DetalleOrdenNego.cs" />
+    <Compile Include="LineaOrdenNego.cs" />
+    <Compile Include="OrdenNego.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RubroNego.cs" />
+    <Compile Include="SubRubroNego.cs" />
     <Compile Include="UsuarioNego.cs" />
   </ItemGroup>
   <ItemGroup>

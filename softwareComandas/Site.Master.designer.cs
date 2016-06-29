@@ -13,6 +13,15 @@ namespace softwareComandas {
     public partial class SiteMaster {
         
         /// <summary>
+        /// id_logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton id_logout;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

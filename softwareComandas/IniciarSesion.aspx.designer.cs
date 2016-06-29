@@ -28,15 +28,6 @@ namespace softwareComandas {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText input_password;
-        
-        /// <summary>
-        /// btn_validar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_validar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword input_password;
     }
 }

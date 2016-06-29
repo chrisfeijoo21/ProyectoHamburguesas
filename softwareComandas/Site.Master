@@ -7,62 +7,101 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>MisterBurger</title>
 
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/Site.css" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/navbar.css" rel="stylesheet" />
+    <link href="Content/dropdown-submenu.css" rel="stylesheet" />
+    <%--<link href="Content/bootstrap-datepicker.css" rel="stylesheet" />--%>
 
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/bootstrap.js"></script>
-    <script src="Scripts/bootstrap-datepicker.js"></script>
-    <script src="Scripts/bootstrap-datepicker.es.min.js"></script>
+    <%--<script src="Scripts/bootstrap-datepicker.js"></script>
+    <script src="Scripts/bootstrap-datepicker.es.min.js"></script>--%>
+
+    <%--<style>
+        body:before {
+            background: url( Imagenes/light.jpg) no-repeat fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            content:""; width:100%;height:100%;
+            position:fixed;top:0;right:0;left:0;bottom:0;
+            opacity:0.1;
+        }
+    </style>--%>
 
 </head>
 <body>
     <form runat="server" class="form-horizontal">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server">SOFTWARE COMANDAS</a>
+        <div class="container-fluid">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span>
+                            <img src="Imagenes/hamburger.svg" height="25" />
+                            MisterBurger</span></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="NuevaOrden.aspx"><i class="glyphicon glyphicon-plus" style="font-size:.8em"></i> Nueva orden</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-list-alt" style="font-size:.8em"></i> Ordenes</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-tasks" style="font-size:.8em"></i> Reportes</a></li>
+                            <% if (Session["userrol"] != null && (Session["userrol"].ToString()) == "admin")
+                               {%>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle btn btn-default btn-outline btn-circle" data-toggle="dropdown">Administracion <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-level" role="menu">
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="Articulos.aspx">Articulos</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="Articulos.aspx#tab_cargar">Añadir</a></li>
+                                            <li><a href="Articulos.aspx#tab_modificar">Modificar</a></li>
+                                            <li><a href="Articulos.aspx#tab_eliminar">Eliminar</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="Usuarios.aspx">Usuarios</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="Usuarios.aspx#tab_cargar">Añadir</a></li>
+                                            <li><a href="Usuarios.aspx#tab_modificar">Modificar</a></li>
+                                            <li><a href="Usuarios.aspx#tab_eliminar">Eliminar</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <% } %>
+                            <% if (Session["username"] == null)
+                               {%>
+                            <li><a href="IniciarSesion.aspx" class="btn btn-default btn-outline btn-circle btn-violeta">Iniciar sesión</a></li>
+                            <% }
+                               else
+                               { %>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle btn btn-default btn-outline btn-circle btn-violeta" data-toggle="dropdown">Hello, <%=Session["username"].ToString()%> ! <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="divider"></li>
+                                    <li>
+                                        <asp:LinkButton ID="id_logout" runat="server" OnClick="id_logout_Click">Logout</asp:LinkButton></li>
+                                </ul>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="NuevaOrden.aspx">Nueva orden</a></li>
-                        <li><a runat="server" href="~/About">Ordenes</a></li>
-                        <li><a runat="server" href="~/Contact">Reportes</a></li>
-                    </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="Usuarios.aspx">Usuarios</a></li>
-                                <li><a runat="server" href="IniciarSesion.aspx">Iniciar sesión</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
-                </div>
-            </div>
+            </nav>
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - SOFTWARE COMANDAS v1.0</p>
+            <footer style="color:#969696">
+                <p>&copy; <%: DateTime.Now.Year %> - MisterBurger v1.0</p>
             </footer>
         </div>
     </form>
